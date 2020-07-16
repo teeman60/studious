@@ -5,12 +5,12 @@ class Menu extends Component {
     render() { 
          
         return (
-            localStorage.token
-            ? 
+            // localStorage.token
+            // ? 
             <div>
                 <h3> Menu Items </h3>                
             </div>
-            : null
+            // : null
          );
     }
 }

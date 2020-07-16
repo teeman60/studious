@@ -44,11 +44,6 @@ class App extends Component {
   // }
 
 
-  // addUser = () => {
-  //   debugger
-  // }
-
-
   render () {
     return (
             
@@ -59,32 +54,29 @@ class App extends Component {
           <Route exact path="/login"
           render={(routeProps) => <Login {...routeProps}/>} changeState={this.changeState}/>
           
-          <Route path="/users/:id"
-          component={UserInfo}/>
+          {/* <Route path="/users/:id"
+          component={UserInfo}/> */}
 
           <Route exact path="/signup"
           render={(routeProps) => <SignUp {...routeProps}/>} changeState={this.changeState}/>
 
           
-          <Skill />
-
-          {/* <Route exact path="/signup"
-          component={SignUp}/> */}
+          {/* <Skill /> */}
 
 
-          {/* <Route exact path="/newappointment"
-          render={(routeProps) => <NewAppointmentForm {...routeProps}/>} /> */}
+          <Route exact path="/appointment"
+          render={(routeProps) => <NewAppointmentForm {...routeProps}/>} />
 
 
-          {/* <Route path="/newpost"
-          render={(routeProps) => <NewPost {...routeProps}/>} /> */}
+          <Route exact path="/post"
+          render={(routeProps) => <NewPost {...routeProps}/>} />
 
           {/* <Route exact path="/newpost"
           component={NewPost}/> */}
 
 
-          {/* <Route path="/menu"
-          render={(routeProps) => <Menu {...routeProps} showMenu={this.state.isLoggedIn}/>} /> */}
+          <Route exact path="/menu"
+          render={(routeProps) => <Menu {...routeProps} />} />
       
                 
           </Switch>

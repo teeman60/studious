@@ -29,7 +29,7 @@ class Skill extends Component {
     render() { 
         return ( 
             <div>
-                <NewAppointmentForm skills={this.state.skills} />
+                {/* <NewAppointmentForm skills={this.state.skills} /> */}
             </div>
          );
     }

@@ -44,6 +44,7 @@ class NewAppointmentForm extends Component {
                     <input type="date" placeholder="Start Date" name="start" value={this.state.start} />
                     <input type="date" placeholder="End Date" name="end" value={this.state.end}  />
                     <input type="number" placeholder="Max. Partners" name="partners" value={this.state.partners} />
+                    <input type="submt" />
                 </form>
             </div>
          );
