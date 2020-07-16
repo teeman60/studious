@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Post extends Component {
+class PostCollection extends Component {
     // state = {  }
     render() { 
         return ( 
@@ -11,4 +11,4 @@ class Post extends Component {
     }
 }
  
-export default Post;
+export default PostCollection;
