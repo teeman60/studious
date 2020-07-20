@@ -30,11 +30,11 @@ p3 = Post.create(user_id: u3.id, content: "how do we begin to differentiate betw
 
     
 
-s1 = Skill.create(title: "Programming with Python")
-s2 = Skill.create(title: "Basics of Redux")
-s3 = Skill.create(title: "MySQL Fundamentals")
-s4 = Skill.create(title: "Mobile Application Programming With React-Native")
-s5 = Skill.create(title: "JavaScript Frameworks")
+s1 = Skill.create(title: "Programming with Python", about: "", resources: "")
+s2 = Skill.create(title: "Basics of Redux", about: "", resources: "")
+s3 = Skill.create(title: "MySQL Fundamentals", about: "", resources: "")
+s4 = Skill.create(title: "Mobile Application Programming With React-Native", about: "", resources: "")
+s5 = Skill.create(title: "JavaScript Frameworks", about: "", resources: "")
 
 
 
