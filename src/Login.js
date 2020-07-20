@@ -14,7 +14,7 @@ class Login extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })  
-        // this.props.history.push("/signup")      
+             
     }
 
 
@@ -39,24 +39,28 @@ class Login extends Component {
                 localStorage.token = UserInfo.token
             })
 
+            this.props.history.push("/menu") 
+
     }
 
 
     render() { 
         return (
                  
-                <div >
-                   
-                    Login Page                    
+                <div className="fill-window" style={{textAlign: 'center', backgroundImage: "url(" + 'https://www.ufv.ca/media/2015/headers/Safe-community-180714491.jpg' + ")"}}>  
+                    <h2 style={{textAlign: 'center', color: 'indigo'}}>Welcome To Better Students</h2>       
                     
-                    <h2>Login</h2>
-                    <form onSubmit={(e) => this.login(e)}>
-                        <label>Username</label>
-                        <input name="username" type="text" onChange={(e) => this.handleChange(e)}/>
-                        <label>Password</label>
-                        <input name="password" type="password" onChange={(e) => this.handleChange(e)}/>
-                        <input type="submit" />
-                    </form>
+                    <form onSubmit={(e) => this.login(e)} style={{display: 'inline-block'}}>
+                        {/* <label style={{color: 'lightgreen'}}>Username</label> */}
+                        <input name="username" type="text" placeholder="username" onChange={(e) => this.handleChange(e)}/>
+                        {/* <label style={{color: 'lightgreen'}}>Password</label> */}<br></br>
+                        <input name="password" type="password" placeholder="password" onChange={(e) => this.handleChange(e)}/>
+                        <input type="submit" style={{display: 'inline-block', color: 'green'}}></input>
+                    </form><br></br>
+                    <div >
+                    <p>Don't have an account? <Link to="/signup" style={{display: 'inline-grid'}}>create a new account</Link></p>
+                    </div>
+                    
                     {/* <button onClick={this.handleChange}>Sign Up</button> */}
                     
                 </div>

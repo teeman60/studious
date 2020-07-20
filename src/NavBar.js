@@ -2,11 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 
 class NavBar extends Component {
-    // state = {  }
-
     
-
-
     render() { 
         let logout = () => {
             localStorage.clear()
@@ -14,14 +10,14 @@ class NavBar extends Component {
         return ( 
             <div>
                 {/* <button onClick={this.logout}>Logout</button> */}
-                <h3>Welcome To Better Students</h3>
+                
                 <div>
-                    <Link to="/signup">Sign Up</Link>
+                    {/* <Link to="/signup">Sign Up</Link> */}
                 </div>
                 <div>
-                    <Link to="/login">Login</Link>
+                    {/* <Link to="/login">Login</Link> */}
                 </div>
-                <div>
+                <div id="header" className="hoc clear">
                     <button onClick={logout}>Logout</button>
                 </div>
 

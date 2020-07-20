@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
 
 class NewAppointmentForm extends Component {
-    
-    // state = {  }
 
-    constructor() {
-        super()
-        this.state = {
-            skill_interest: "",
-            start_date: "",
-            end_date: "",
-            max_partners: 1 
-        }
+
+
+    handleChange = (e) => {
+        // debugger
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+        // console.log(this.state)
     }
 
 
-
-    componentDidMount() {
+    handleSubmit = (e) => {
+        e.preventDefault()
         fetch('http://localhost:3000/appointments', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.token}`
             },
             body: JSON.stringify(
                 this.state
             )
         })
-        .then(res => res.json())
-        .then(newApp => {
-            console.log(newApp)
-        })
+        console.log(this.state)
     }
 
 
@@ -37,14 +34,14 @@ class NewAppointmentForm extends Component {
     render() { 
         return ( 
             <div>
-                <form>
-                    <select value={null}>
-                        {this.props.skills.map(sk => <option>{sk.title}</option>)}
+                <form onSubmit={this.handleSubmit}>
+                    <select name="skill" onChange={this.handleChange}>
+                        {this.props.skills.map(sk => <option key={sk.id} name={sk.attributes.title}>{sk.attributes.title}</option>)}
                     </select>
-                    <input type="date" placeholder="Start Date" name="start" value={this.state.start} />
-                    <input type="date" placeholder="End Date" name="end" value={this.state.end}  />
-                    <input type="number" placeholder="Max. Partners" name="partners" value={this.state.partners} />
-                    <input type="submt" />
+                    <input type="date" placeholder="Start Date" name="start_date" onChange={this.handleChange}/>
+                    <input type="date" placeholder="End Date" name="completion_date" onChange={this.handleChange}/>
+                    <input type="number" placeholder="Max. Partners" name="max_partners" onChange={this.handleChange}/>
+                    <input type="submit"/> 
                 </form>
             </div>
          );

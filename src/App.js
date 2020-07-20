@@ -10,7 +10,14 @@ import UserInfo from './UserInfo';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import NewAppointmentForm from './NewAppointmentForm';
 import Skill from './Skill';
+import Appointment from './Appointment'
 import NewPost from './NewPost';
+import PostCollection from './PostCollection'
+import './framework.css'
+import './layout.css'
+
+
+
 
 class App extends Component {
 
@@ -23,36 +30,25 @@ class App extends Component {
 
 
   changeState = (e) => {
-    debugger
+    // debugger
     e.preventDefault()
     this.setState({
       isLoggedIn: !this.state.isLoggedIn
     })
   }
 
-  //  in subsequent requests, send token for authorization:
-
-  // getJobListing = () => {
-  //   fetch('http://localhost:3000/jobs', {
-  //     method: 'GET',
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.token}`
-  //     }
-  //   })
-  //   .then(res => res.json())
-  //   .then()
-  // }
-
 
   render () {
+
     return (
             
       <BrowserRouter>        
         <div >
-          <NavBar />
+          {/* <NavBar /> */}
+          
           <Switch>
           <Route exact path="/login"
-          render={(routeProps) => <Login {...routeProps}/>} changeState={this.changeState}/>
+          render={(routeProps) => <Login {...routeProps}/>} changeState={this.changeState} />
           
           {/* <Route path="/users/:id"
           component={UserInfo}/> */}
@@ -60,12 +56,24 @@ class App extends Component {
           <Route exact path="/signup"
           render={(routeProps) => <SignUp {...routeProps}/>} changeState={this.changeState}/>
 
-          
+
+          <Route exact path="/skills"
+          render={(routeProps) => <Skill {...routeProps}/>}/>
+
+
           {/* <Skill /> */}
 
+          
 
-          <Route exact path="/appointment"
-          render={(routeProps) => <NewAppointmentForm {...routeProps}/>} />
+          <Route exact path="/postcollection"
+          render={(routeProps) => <PostCollection {...routeProps}/>} />
+
+
+          <Route exact path="/appointments"
+          render={(routeProps) => <Appointment {...routeProps}/>} />
+
+          {/* <Route exact path="/newappointment"
+          render={(routeProps) => <NewAppointmentForm {...routeProps}/>} /> */}
 
 
           <Route exact path="/post"

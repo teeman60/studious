@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PostCollection from './PostCollection';
 
 class NewPost extends Component {
     // state = {  }
@@ -7,6 +8,7 @@ class NewPost extends Component {
         super()
         this.state = {
             content: ""
+            // oldPosts: []
         }
     }
 
@@ -25,16 +27,12 @@ class NewPost extends Component {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                Authorization: `Bearer ${localStorage.token}`
+                'Authorization': `Bearer ${localStorage.token}`
             },
-            body: JSON.stringify(
-                this.state
-            )
-        })
-            .then(res => res.json())
-            .then(newPost => {
-                console.log(newPost)
+            body: JSON.stringify({
+                content: this.state.content
             })
+        })
     }
 
 
@@ -50,6 +48,7 @@ class NewPost extends Component {
                     <textarea value={this.state.content} onChange={this.handleChange} />
                     <input type="submit" />
                 </form>
+                {/* <PostCollection newPost={this.state.content}/> */}
             </div>
             :
             <div>
