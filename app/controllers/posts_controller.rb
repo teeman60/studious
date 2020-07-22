@@ -8,8 +8,11 @@ class PostsController < ApplicationController
     end
 
     def create
-        byebug
+        # byebug
         post_params[:user_id] = @user.id
+        post_params[:resolved?] = "tree"
+        post_params[:likes] = 0
+        byebug
         post = Post.create(post_params)
         # if post.user_id == @user.id
         #    post.save
@@ -20,10 +23,23 @@ class PostsController < ApplicationController
 
 
     def show
-        # if @user
-        post = Post.find(params[:id])
+        if @user
+        post = Post.find_by(id: params[:id])
+        # byebug
         render json: PostSerializer.new(post) 
-        # end
+        end
+    end
+
+
+    def update 
+        if @user
+        post = Post.find(params[:id])
+        post.likes += 1
+        # post['resolved?'] = !post['resolved?']
+        # byebug
+        post.save
+        end
+
     end
 
 
