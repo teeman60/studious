@@ -48,12 +48,12 @@ class Login extends Component {
         return (
                  
                 <div className="fill-window" style={{textAlign: 'center', backgroundImage: "url(" + 'https://www.ufv.ca/media/2015/headers/Safe-community-180714491.jpg' + ")"}}>  
-                    <h2 style={{textAlign: 'center', color: 'indigo'}}>Welcome To Better Students</h2>       
+                    <h2 style={{textAlign: 'center', color: 'indigo'}}>Welcome To Your Students Community</h2>       
                     
                     <form onSubmit={(e) => this.login(e)} style={{display: 'inline-block'}}>
-                        {/* <label style={{color: 'lightgreen'}}>Username</label> */}
+                        
                         <input name="username" type="text" placeholder="username" onChange={(e) => this.handleChange(e)}/>
-                        {/* <label style={{color: 'lightgreen'}}>Password</label> */}<br></br>
+                        <br></br>
                         <input name="password" type="password" placeholder="password" onChange={(e) => this.handleChange(e)}/>
                         <input type="submit" style={{display: 'inline-block', color: 'green'}}></input>
                     </form><br></br>

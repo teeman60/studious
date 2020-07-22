@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import NewAppointmentForm from './NewAppointmentForm'
 
 class Skill extends Component {
-    // state = {  }
+    
 
     constructor() {
         super()
         this.state = {
-            skills: []
+            skills: [],
+            displayAppointmentForm: false
         }
     }
 
@@ -20,7 +21,7 @@ class Skill extends Component {
                 this.setState({
                     skills: att
             })
-            console.log(this.state.skills)
+            // console.log(this.state.skills)
             })
     }
 
@@ -34,11 +35,10 @@ class Skill extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        // console.log(Object.filter(this.state, ele => ele.key === "skills"))
-        // .omit(this.state, "skills")
+
         delete this.state['skills']
         let updated = this.state
-        // console.log(updated)
+        
         fetch('http://localhost:3000/skills', {
             method: 'POST',
             headers: {
@@ -57,15 +57,15 @@ class Skill extends Component {
 
     render() { 
         return ( 
-            <div>
-                <NewAppointmentForm skills={this.state.skills} /> <br></br>
+            
+            <div>                
                 <h3>Add a skill you feel you'd like to learn</h3>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" name="title" placeholder="Proposed Title" onChange={this.handleChange} /><br></br>
                     <textarea type="text" name="about" placeholder="A little facts about this skill" onChange={this.handleChange}/><br></br>
                     <input type="text" name="resources" placeholder="Links about this skill you'd like to share" onChange={this.handleChange}/><br></br>
                     <input type="submit"/> 
-                </form>
+                </form>                               
             </div>
          );
     }

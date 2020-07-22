@@ -20,7 +20,7 @@ class NavBar extends Component {
                 <div id="header" className="hoc clear">
                     <button onClick={logout}>Logout</button>
                 </div>
-
+                {this.props.comm}
             </div>
          );
     }

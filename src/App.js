@@ -13,8 +13,11 @@ import Skill from './Skill';
 import Appointment from './Appointment'
 import NewPost from './NewPost';
 import PostCollection from './PostCollection'
+import NewComment from './NewComment'
+// import Card from '../Cards/Cards'
 import './framework.css'
 import './layout.css'
+
 
 
 
@@ -45,7 +48,6 @@ class App extends Component {
       <BrowserRouter>        
         <div >
           {/* <NavBar /> */}
-          
           <Switch>
           <Route exact path="/login"
           render={(routeProps) => <Login {...routeProps}/>} changeState={this.changeState} />
@@ -61,7 +63,9 @@ class App extends Component {
           render={(routeProps) => <Skill {...routeProps}/>}/>
 
 
-          {/* <Skill /> */}
+          <Route exact path="/nav"
+          render={(routeProps) => <NavBar {...routeProps}/>}/>
+
 
           
 
@@ -72,15 +76,21 @@ class App extends Component {
           <Route exact path="/appointments"
           render={(routeProps) => <Appointment {...routeProps}/>} />
 
-          {/* <Route exact path="/newappointment"
-          render={(routeProps) => <NewAppointmentForm {...routeProps}/>} /> */}
+          <Route exact path="/newappointment"
+          render={(routeProps) => <NewAppointmentForm {...routeProps}/>} />
 
 
           <Route exact path="/post"
           render={(routeProps) => <NewPost {...routeProps}/>} />
 
+          <Route exact path="/comment"
+          render={(routeProps) => <NewComment {...routeProps}/>} />
+
           {/* <Route exact path="/newpost"
           component={NewPost}/> */}
+
+          {/* <Route exact path="/card"
+          render={(routeProps) => <Card {...routeProps}/>} /> */}
 
 
           <Route exact path="/menu"

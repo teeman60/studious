@@ -4,6 +4,29 @@ class NewAppointmentForm extends Component {
 
 
 
+    constructor() {
+        super()
+        this.state = {
+            skills: []
+        }
+    }
+
+
+
+    componentDidMount() {
+        fetch('http://localhost:3000/skills')
+            .then(res => res.json())
+            .then( data => {
+                let att = data.data
+                this.setState({
+                    skills: att
+            })
+            // console.log(this.state.skills)
+            })
+    }
+
+
+
     handleChange = (e) => {
         // debugger
         this.setState({
@@ -36,7 +59,7 @@ class NewAppointmentForm extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <select name="skill" onChange={this.handleChange}>
-                        {this.props.skills.map(sk => <option key={sk.id} name={sk.attributes.title}>{sk.attributes.title}</option>)}
+                        {this.state.skills.map(sk => <option key={sk.id} name={sk.attributes.title}>{sk.attributes.title}</option>)}
                     </select>
                     <input type="date" placeholder="Start Date" name="start_date" onChange={this.handleChange}/>
                     <input type="date" placeholder="End Date" name="completion_date" onChange={this.handleChange}/>
