@@ -29,7 +29,8 @@ class SignUp extends Component {
         })
             // .then(res => res.json())
             // .then(console.log)
-
+            alert("New Account Created")
+            this.props.history.push("/")
     }
 
 
@@ -44,7 +45,7 @@ class SignUp extends Component {
                     <label>Password</label>
                     <input name="password" type="password" onChange={(e) => this.handleChange(e)}/>
                     <label>Password Confirmation</label>
-                    <input name="password" type="password" onChange={(e) => this.handleChange(e)}/>
+                    <input name="confirm_password" type="password" onChange={(e) => this.handleChange(e)}/>
                     <input type="submit" />
                 </form>
 

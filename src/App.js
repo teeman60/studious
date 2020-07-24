@@ -12,8 +12,10 @@ import NewAppointmentForm from './NewAppointmentForm';
 import Skill from './Skill';
 import Appointment from './Appointment'
 import NewPost from './NewPost';
+import Post from './Post';
 import PostCollection from './PostCollection'
 import NewComment from './NewComment'
+import {Link} from 'react-router-dom'
 // import Card from '../Cards/Cards'
 import './framework.css'
 import './layout.css'
@@ -27,9 +29,34 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      isLoggedIn: true
+      isLoggedIn: true,
+      user: []
     }
   }
+
+
+
+  // componentDidMount() {
+  //   fetch(`http://localhost:3000/users/${localStorage.user_id}`, {
+  //       method: 'GET',
+  //       headers: {
+  //           'Content-Type': 'application/json',
+  //           'Accept': 'application/json',
+  //           'Authorization': `Bearer ${localStorage.token}`
+  //       }
+  //   })
+  //       .then(res => res.json())
+  //       .then(user => {
+  //           this.setState({
+  //               user: [... this.state.user, user.data.attributes]
+  //           })
+            
+  //           // {<UserInfo gty={user.data.attributes} />}
+  //           console.log(user.data.attributes.username)
+  //           console.log(this.state.user)
+  //       })
+        
+  // }
 
 
   changeState = (e) => {
@@ -47,13 +74,15 @@ class App extends Component {
             
       <BrowserRouter>        
         <div >
-          {/* <NavBar /> */}
+          {/* <Login /> */}
+          
           <Switch>
-          <Route exact path="/login"
-          render={(routeProps) => <Login {...routeProps}/>} changeState={this.changeState} />
           
           {/* <Route path="/users/:id"
           component={UserInfo}/> */}
+
+          <Route exact path="/"
+          render={(routeProps) => <Login {...routeProps}/>} changeState={this.changeState} />
 
           <Route exact path="/signup"
           render={(routeProps) => <SignUp {...routeProps}/>} changeState={this.changeState}/>
@@ -63,9 +92,12 @@ class App extends Component {
           render={(routeProps) => <Skill {...routeProps}/>}/>
 
 
-          <Route exact path="/nav"
+           <Route exact path="/nav"
           render={(routeProps) => <NavBar {...routeProps}/>}/>
 
+
+          <Route exact path="/user"
+          render={(routeProps) => <UserInfo {...routeProps}/>} user={this.state.user}/>
 
           
 
@@ -80,17 +112,21 @@ class App extends Component {
           render={(routeProps) => <NewAppointmentForm {...routeProps}/>} />
 
 
-          <Route exact path="/post"
+          <Route exact path="/newpost"
           render={(routeProps) => <NewPost {...routeProps}/>} />
 
           <Route exact path="/comment"
           render={(routeProps) => <NewComment {...routeProps}/>} />
 
+
+          <Route exact path={`/posts/:id`}
+          render={(routeProps) => <Post {...routeProps}/>} />
+
           {/* <Route exact path="/newpost"
           component={NewPost}/> */}
 
-          {/* <Route exact path="/card"
-          render={(routeProps) => <Card {...routeProps}/>} /> */}
+          {/* <Route exact path="/nav"
+          render={(routeProps) => <NavBar {...routeProps}/>} /> */}
 
 
           <Route exact path="/menu"

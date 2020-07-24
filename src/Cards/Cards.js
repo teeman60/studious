@@ -4,10 +4,11 @@ import {Link} from 'react-router-dom'
 
 class Cards extends Component {
 
-    // goToLink = (e) => {
-    //     // debugger
+    goToLink = (e) => {
+        // debugger
+        this.props.history.push(`/${this.props.link}`)
          
-    // }
+    }
 
     render() {
         return(
@@ -17,8 +18,8 @@ class Cards extends Component {
                 </div>
                 <div className="card-body text-dark">
                      <h4 className="card-title">{this.props.title}</h4>
-                    <p className="card-text text-secondary"> some texts</p>
-        <button className="btn btn-outline-success">{this.props.button}</button>
+                    <p className="card-text text-secondary"> {this.props.about}</p>
+        <button onClick={() => {this.goToLink()}} className="btn btn-outline-success">{this.props.button}</button>
                 </div>
             </div>
         )

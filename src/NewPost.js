@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PostCollection from './PostCollection';
+import Post from './Post'
 
 class NewPost extends Component {
     // state = {  }
@@ -7,8 +8,9 @@ class NewPost extends Component {
     constructor() {
         super()
         this.state = {
-            content: ""
-            // oldPosts: []
+            content: "",
+            new: "decent"
+            
         }
     }
 
@@ -33,11 +35,19 @@ class NewPost extends Component {
                 content: this.state.content
             })
         })
+
+        .then(res => res.json())
+        .then(newpost => {
+            this.setState({
+                new: [...this.state.new, newpost]
+            })
+        })
+        this.props.history.push(`/posts/${this.state.new.id}`)
     }
 
 
     render() { 
-       
+       console.log(this.state.new)
         return ( 
             
             localStorage.token 
@@ -48,7 +58,7 @@ class NewPost extends Component {
                     <textarea value={this.state.content} onChange={this.handleChange} />
                     <input type="submit" />
                 </form>
-                {/* <PostCollection newPost={this.state.content}/> */}
+                {/* <Post new={this.state.new}/> */}
             </div>
             :
             <div>

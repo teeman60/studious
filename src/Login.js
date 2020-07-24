@@ -8,6 +8,13 @@ import UserInfo from './UserInfo';
 class Login extends Component {
     // state = {  }
 
+    constructor() {
+        super()
+        this.state = {
+            user: []
+        }
+    }
+
 
     handleChange = (e) => {
         // debugger
@@ -17,8 +24,7 @@ class Login extends Component {
              
     }
 
-
-   
+  
 
     login = (e) => {
         e.preventDefault()
@@ -37,10 +43,13 @@ class Login extends Component {
             .then(res => res.json())
             .then(UserInfo => {
                 localStorage.token = UserInfo.token
+                localStorage.user_id = UserInfo.id
+                // console.log(UserInfo)
             })
-
+            
+            // localStorage ?
             this.props.history.push("/menu") 
-
+            // : alert("Please Login First!")
     }
 
 
@@ -50,7 +59,7 @@ class Login extends Component {
                 <div className="fill-window" style={{textAlign: 'center', backgroundImage: "url(" + 'https://www.ufv.ca/media/2015/headers/Safe-community-180714491.jpg' + ")"}}>  
                     <h2 style={{textAlign: 'center', color: 'indigo'}}>Welcome To Your Students Community</h2>       
                     
-                    <form onSubmit={(e) => this.login(e)} style={{display: 'inline-block'}}>
+                    <form onSubmit={(e) => this.login(e)} style={{display: 'inline-block'}} >
                         
                         <input name="username" type="text" placeholder="username" onChange={(e) => this.handleChange(e)}/>
                         <br></br>
