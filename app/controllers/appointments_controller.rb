@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
 
-    skip_before_action :logged_in?, only: [:index]
+    skip_before_action :logged_in?, only: [:index, :show]
 
     def index
         appointments = Appointment.all
@@ -21,9 +21,18 @@ class AppointmentsController < ApplicationController
     end
 
 
-    def find_id
-
+    def show 
+        # if @user
+            appointment = Appointment.find(params[:id])
+            # byebug
+            render json: AppointmentSerializer.new(appointment) 
+        # end
     end
+
+
+    # def find_id
+
+    # end
 
 
     def appointment_params

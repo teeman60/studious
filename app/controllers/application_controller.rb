@@ -26,7 +26,7 @@ class ApplicationController < ActionController::API
         # byebug
     end
 
-    def find_skill_id
-    end
+    # def find_skill_id
+    # end
 
 end
