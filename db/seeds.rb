@@ -44,11 +44,11 @@ c3 = Comment.create(post_id: p3.id, user_id: u3.id, content: "maybe use brackets
 
 
 
-a1 = Appointment.create(user_id: u1.id, skill_id: s1.id, max_partners: 1, start_date: DateTime.parse("08/01/2020"), completion_date: DateTime.parse("08/12/2020"))
-a2 = Appointment.create(user_id: u2.id, skill_id: s2.id, max_partners: 1, start_date: DateTime.parse("08/01/2020"), completion_date: DateTime.parse("08/12/2020"))
-a3 = Appointment.create(user_id: u3.id, skill_id: s3.id, max_partners: 1, start_date: DateTime.parse("08/01/2020"), completion_date: DateTime.parse("08/12/2020"))
-a4 = Appointment.create(user_id: u4.id, skill_id: s4.id, max_partners: 1, start_date: DateTime.parse("08/01/2020"), completion_date: DateTime.parse("08/12/2020"))
-a5 = Appointment.create(user_id: u5.id, skill_id: s5.id, max_partners: 1, start_date: DateTime.parse("08/01/2020"), completion_date: DateTime.parse("08/12/2020"))
+a1 = Appointment.create(user_id: u1.id, skill_id: s1.id, skill_title: "Programming with Python", max_partners: 1, start_date: DateTime.parse("08/01/2020"), completion_date: DateTime.parse("08/12/2020"))
+a2 = Appointment.create(user_id: u2.id, skill_id: s2.id, skill_title: "Basics of Redux", max_partners: 1, start_date: DateTime.parse("08/01/2020"), completion_date: DateTime.parse("08/12/2020"))
+a3 = Appointment.create(user_id: u3.id, skill_id: s3.id, skill_title: "MySQL Fundamentals", max_partners: 1, start_date: DateTime.parse("08/01/2020"), completion_date: DateTime.parse("08/12/2020"))
+a4 = Appointment.create(user_id: u4.id, skill_id: s4.id, skill_title: "Mobile Application Programming With React-Native", max_partners: 1, start_date: DateTime.parse("08/01/2020"), completion_date: DateTime.parse("08/12/2020"))
+a5 = Appointment.create(user_id: u5.id, skill_id: s5.id, skill_title: "JavaScript Frameworks", max_partners: 1, start_date: DateTime.parse("08/01/2020"), completion_date: DateTime.parse("08/12/2020"))
 
 
 

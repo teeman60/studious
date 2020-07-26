@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_17_154523) do
+ActiveRecord::Schema.define(version: 2020_07_25_202933) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_154523) do
     t.date "start_date"
     t.date "completion_date"
     t.integer "max_partners"
+    t.string "skill_title"
     t.index ["skill_id"], name: "index_appointments_on_skill_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end

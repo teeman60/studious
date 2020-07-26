@@ -11,10 +11,11 @@ class AppointmentsController < ApplicationController
     def create
         # byebug
         appointment_params[:user_id] = @user.id
-        skill_id = Skill.find_by("title": params["skill"]).id
+        skill_id = Skill.find_by("title": params["skill_title"]).id
+        # skill_id = 2
         appointment_params[:skill_id] = skill_id
         appointment = Appointment.create!(appointment_params)
-        byebug
+        # byebug
         render json: AppointmentSerializer.new(appointment)
         # end
         

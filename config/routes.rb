@@ -14,9 +14,12 @@ Rails.application.routes.draw do
   get '/posts/:id', to: 'posts#show'
 
   post '/posts', to: 'posts#create'
+  
 
   patch '/posts/like/:id', to: 'posts#like'
   patch '/posts/resolve/:id', to: 'posts#resolve'
+  delete '/posts/:id', to: 'posts#destroy'
+
 
 
 

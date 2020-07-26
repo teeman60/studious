@@ -1,6 +1,6 @@
 class SkillsController < ApplicationController
 
-    skip_before_action :logged_in?, only: [:index]
+    skip_before_action :logged_in?, only: [:index, :show]
 
     def index
         skills = Skill.all 
@@ -11,6 +11,15 @@ class SkillsController < ApplicationController
         # byebug
         skill = Skill.create!(skill_params)
         render json: SkillSerializer.new(skill)
+    end
+
+    def show 
+        # user_params[:id] = @user.id
+        # byebug
+        skill = Skill.find_by(id: params[:id])
+        # if user == @user
+        render json: SkillSerializer.new(skill)
+        
     end
 
 

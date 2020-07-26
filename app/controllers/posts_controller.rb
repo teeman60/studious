@@ -17,18 +17,21 @@ class PostsController < ApplicationController
         # if post.user_id == @user.id
            post.save
            render json: PostSerializer.new(post)
+        #    byebug
         # end
         
     end
 
 
     def show
-        # byebug
-        if @user
-        post = Post.find(params[:id])
-        # byebug
-        render json: PostSerializer.new(post) 
-        end
+      
+       
+            # user_params[:id] = @user.id
+            # byebug
+            post = Post.find_by(id: params[:id])
+            # if user == @user
+            render json: PostSerializer.new(post)
+     
     end
 
 
