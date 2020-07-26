@@ -3,7 +3,8 @@ body {
 }
 
 .card {
-    width: 20rem
+    width: 20rem;
+    display: inline-flex
 }
 
 .card:hover {
@@ -21,6 +22,7 @@ body {
 
 .container-fluid .row {
     padding-top: 6rem;
+    /* max-width: calc(25% - 30px) */
 }
 
 .card-img-top {
@@ -36,3 +38,48 @@ body {
 .card-img-top:hover {
     transform: scale(1.8);
 }
+
+.new {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+
+
+  .modal {
+      width: 400px;
+      border: 1px solid grey;
+      margin: 0 auto;
+      margin-top: 10px;
+      background: grey;
+  }
+
+  .mod {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* .open-button {
+    background-color: #555;
+    color: rgb(76, 165, 11);
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    /* position: ; */
+    /* bottom: 23px;
+    right: 28px;
+    width: 300px; */
+  /* } */

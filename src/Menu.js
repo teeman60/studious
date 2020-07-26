@@ -9,10 +9,14 @@ import img1 from '../src/Assets/question_hand.jpg'
 import img2 from '../src//Assets/set_goals.jpg'
 import img3 from '../src//Assets/forum_discussions.png'
 import img4 from '../src/Assets/skills.jpg'
+import Modal from 'react-modal'
+
 
 
 import Card from '../src/Cards/Cards'
 import UserInfo from './UserInfo';
+Modal.setAppElement('#root')
+
 
 
 
@@ -55,10 +59,12 @@ class Menu extends Component {
     render() { 
 
         // console.log(this.props.history)
+        
+
          
-        return (
+        return localStorage.token !== undefined ? (
             
-                <div style={{textAlign: 'center', backgroundImage: "url(" + 'https://www.ufv.ca/media/2015/headers/Safe-community-180714491.jpg' + ")"}}>
+                <div style={{textAlign: 'center', backgroundImage: "url(" + 'https://wallpaperhd.wiki/wp-content/uploads/hd-backgrounds-websites-wallpaper-website-background-lines-texture1095.jpg' + ")"}}>
                    
                    <div >
                       
@@ -71,9 +77,11 @@ class Menu extends Component {
                    </div>
                    <div className="container-fluid d-flex justify-content-center">
                     <div className="row">
+                    {/* <Modal> */}
                     <div className="col-md-4" onClick={this.getUser}>
                         <Card imgsrc={img1} history={this.props.history} title="Ask The Community" button="Get Help" link="newpost" about="Have questions to ask the community? Everyone's here to help. Ask away!!!"/>
                     </div>
+                    {/* </Modal> */}
                     <div className="col-md-4">
                         <Card imgsrc={img2} history={this.props.history} title="Set A skill Aquisition Goal" button="Get Matched" link="newappointment" about="Do you have some skills you'd like to pick up but feel unmotivated to push through? Get matched with students with same quest as you and go through this phase together"/>
                     </div>
@@ -84,16 +92,18 @@ class Menu extends Component {
                         <Card imgsrc={img4} history={this.props.history} title="Skills Section" button="Skills Hub" link="skills" about="Check out our skills section for a list of cool 21st century skills to have. Feel free to add yours if you have some other ones and we'll review them."/>
                     </div>
                     {/* <UserInfo user={this.state.user}/> */}
-                </div>
+                    
+                  </div>
 
-            </div>
+                 </div>
 
                                
                 </div>
-            
-            
-            
-         );
+                       
+         ):(<div>
+            <h4>Please Login First</h4>
+         </div>)
+        
     }
 }
  

@@ -1,5 +1,5 @@
 // import React from 'react';
-import React, { Component } from 'react';
+import React, { Component, useState, useRef, useEffect } from 'react';
 import logo from './logo.svg';
 import SignUp from './SignUp';
 import Login from './Login';
@@ -15,10 +15,15 @@ import NewPost from './NewPost';
 import Post from './Post';
 import PostCollection from './PostCollection'
 import NewComment from './NewComment'
+import Chat from './Chat'
 import {Link} from 'react-router-dom'
 // import Card from '../Cards/Cards'
 import './framework.css'
 import './layout.css'
+import Upload from './Upload'
+
+// import io from 'socket.io-client'
+// import styled from 'styled-components'
 
 
 
@@ -33,6 +38,13 @@ class App extends Component {
       user: []
     }
   }
+
+
+
+
+
+
+
 
 
 
@@ -59,6 +71,7 @@ class App extends Component {
   // }
 
 
+
   changeState = (e) => {
     // debugger
     e.preventDefault()
@@ -69,17 +82,25 @@ class App extends Component {
 
 
   render () {
+    
 
     return (
+
+      
+       
+      <BrowserRouter> 
+         <NavBar /> 
             
-      <BrowserRouter>        
         <div >
-          {/* <Login /> */}
+        
           
           <Switch>
+
+{/* 
+          <Route exact path="/nav"
+          render={(routeProps) => <NavBar {...routeProps} />} /> */}
           
-          {/* <Route path="/users/:id"
-          component={UserInfo}/> */}
+          
 
           <Route exact path="/"
           render={(routeProps) => <Login {...routeProps}/>} changeState={this.changeState} />
@@ -88,12 +109,14 @@ class App extends Component {
           render={(routeProps) => <SignUp {...routeProps}/>} changeState={this.changeState}/>
 
 
+
+          <Route exact path="/chat"
+          render={(routeProps) => <Chat {...routeProps}/>} changeState={this.changeState}/>
+
+
           <Route exact path="/skills"
           render={(routeProps) => <Skill {...routeProps}/>}/>
-
-
-           <Route exact path="/nav"
-          render={(routeProps) => <NavBar {...routeProps}/>}/>
+          
 
 
           <Route exact path="/user"
@@ -112,21 +135,18 @@ class App extends Component {
           render={(routeProps) => <NewAppointmentForm {...routeProps}/>} />
 
 
-          <Route exact path="/newpost"
-          render={(routeProps) => <NewPost {...routeProps}/>} />
+          <Route exact path="/upload"
+          render={(routeProps) => <Upload {...routeProps}/>} />
 
           <Route exact path="/comment"
           render={(routeProps) => <NewComment {...routeProps}/>} />
 
 
           <Route exact path={`/posts/:id`}
-          render={(routeProps) => <Post {...routeProps}/>} />
+          render={(routeProps) => <NewPost {...routeProps}/>} />
 
           {/* <Route exact path="/newpost"
           component={NewPost}/> */}
-
-          {/* <Route exact path="/nav"
-          render={(routeProps) => <NavBar {...routeProps}/>} /> */}
 
 
           <Route exact path="/menu"

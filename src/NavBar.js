@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import UserInfo from './UserInfo';
 
+import logo from '../src/Assets/transp_img.png'
+
 class NavBar extends Component {
 
 
@@ -27,11 +29,10 @@ class NavBar extends Component {
             .then(res => res.json())
             .then(user => {
                 this.setState({
-                    user: [... this.state.user, user.data.attributes]
+                    // user: [... this.state.user, user.data.attributes]
                 })
                 
-                // {<UserInfo gty={user.data.attributes} />}
-                // console.log(this.state.user)
+                
             })
             
     }
@@ -39,6 +40,7 @@ class NavBar extends Component {
 
     getUser = () => {
         console.log(this.state.user)
+        // <Link to="/chat" >chatroom</Link>
         // {<UserInfo user={this.state.user}/>}
         this.props.history.push('/user')
     }
@@ -51,34 +53,65 @@ class NavBar extends Component {
     }
 
 
+  
+
+
     
     render() { 
         
 
-        // {this.state.user} = filled
-
-        return ( 
+        // console.log(this.props.history)
+        if (localStorage.token ) {
+            return  (             
             
-            this.state.user.length > 0
-            ?
-            <div>
-                <button onClick={this.getUser}>Profile</button>
-                
                 <div>
-                    {/* app image / logo */}
-                </div>
-                <div>
-                    {/* <UserInfo user={this.state.user}/> */}
-                </div>
-                <div id="header" className="hoc clear">
-                    <button onClick={this.logout}>Logout</button>
-                </div>
-                {this.props.comm}
-            </div>
-            :
-            null
-         );
-    }
+                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                        <img src={logo} alt="logo" style={{height:30, width:50}}/>
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon" />
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav mr-auto">
+                                <li className="nav-item active">
+                                    <a className="nav-link" href="http://localhost:3001/menu">Home <span className="sr-only">(current)</span></a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Link</a>
+                                </li>
+                                <li className="nav-item dropdown">
+                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Dropdown
+                                    </a>
+                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <div className="dropdown-divider" />
+                                    <a className="dropdown-item" href="#">Something else here</a>
+                                </div>
+                                </li>
+                                <li className="nav-item">
+                                    <button className="nav-link disabled" onClick={this.logout} tabIndex={-1} aria-disabled="true">Logout</button>
+                                </li>
+                            </ul>
+             
+                            <button className="btn btn-outline-success my-1 my-sm-0" onClick={this.logout} type="submit">Profile</button>
+                        </div>
+                    </nav>                
+                        
+                        {/* profile */}
+                        {/* logout  */}
+    
+                    </div>                
+             ) 
+            }
+            else {
+                return (<div></div>)
+             }
+        }
+
+        
+         
+            
 }
  
 export default NavBar;

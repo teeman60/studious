@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import PostCollection from './PostCollection';
 import Post from './Post'
+import '../src/Cards/card-style.css'
+import Modal from 'react-modal'
+
+Modal.setAppElement('#root')
+
 
 class NewPost extends Component {
     // state = {  }
@@ -8,63 +13,50 @@ class NewPost extends Component {
     constructor() {
         super()
         this.state = {
-            content: "",
-            new: "decent"
+            // content: "",
+            new: []
             
         }
     }
 
 
-    handleChange = (e) => {
-        this.setState({
-            content: e.target.value
-        })
-    }
-
-
-    handleSubmit = (e) => {
-        // debugger
-        fetch('http://localhost:3000/posts', {
-            method: 'POST',
+    componentWillMount() {
+        fetch(`http://localhost:3000/posts/${localStorage.newpost_id}`, {
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 'Authorization': `Bearer ${localStorage.token}`
-            },
-            body: JSON.stringify({
-                content: this.state.content
-            })
+            }
         })
-
-        .then(res => res.json())
-        .then(newpost => {
-            this.setState({
-                new: [...this.state.new, newpost]
+            .then(res => res.json())
+            .then(post => {
+                this.setState({
+                    new: post.data.attributes
+                })
+                // console.log(this.state.new)
             })
-        })
-        this.props.history.push(`/posts/${this.state.new.id}`)
     }
 
 
+   
+
+
     render() { 
-       console.log(this.state.new)
+        console.log(this.state.new)
         return ( 
             
-            localStorage.token 
-            ?
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label> Ask The Student Community:</label>
-                    <textarea value={this.state.content} onChange={this.handleChange} />
-                    <input type="submit" />
-                </form>
-                {/* <Post new={this.state.new}/> */}
+                <Modal isOpen={true} style={{content:{width: '50%', position: 'fixed'}}}>
+                    {this.state.new.content}
+                    {this.state.new.likes}
+                    {this.state.new['resolved?']}
+                    {this.state.new.created_at}
+                    
+                    
+                </Modal>
+
             </div>
-            :
-            <div>
-            <h4>You're not logged in!</h4>
-            </div>
-            
          );
          
     }

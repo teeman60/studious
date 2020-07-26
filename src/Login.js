@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import SignUp from './SignUp';
 import NavBar from './NavBar'
+import Post from './Post'
 import { Link } from 'react-router-dom'
 import UserInfo from './UserInfo';
 
@@ -11,7 +12,9 @@ class Login extends Component {
     constructor() {
         super()
         this.state = {
-            user: []
+            user: [],
+            username: "",
+            password: ""
         }
     }
 
@@ -42,15 +45,28 @@ class Login extends Component {
         })
             .then(res => res.json())
             .then(UserInfo => {
-                localStorage.token = UserInfo.token
-                localStorage.user_id = UserInfo.id
+                // debugger
+                if (UserInfo.token) {
+                    localStorage.token = UserInfo.token 
+                    localStorage.user_id = UserInfo.id 
+                    this.props.history.push("/menu") 
+                } else {
+                    alert("Invalid Username or password")
+                }
+                 
                 // console.log(UserInfo)
-            })
-            
-            // localStorage ?
-            this.props.history.push("/menu") 
-            // : alert("Please Login First!")
+                
+            })      
+                  
     }
+
+
+    resetForm = () => {
+        this.setState({ username: '', password: '' })
+    }
+
+
+   
 
 
     render() { 
@@ -59,7 +75,7 @@ class Login extends Component {
                 <div className="fill-window" style={{textAlign: 'center', backgroundImage: "url(" + 'https://www.ufv.ca/media/2015/headers/Safe-community-180714491.jpg' + ")"}}>  
                     <h2 style={{textAlign: 'center', color: 'indigo'}}>Welcome To Your Students Community</h2>       
                     
-                    <form onSubmit={(e) => this.login(e)} style={{display: 'inline-block'}} >
+                    <form onSubmit={(e) => this.login(e)} style={{display: 'inline-block'}} onReset={this.resetForm}>
                         
                         <input name="username" type="text" placeholder="username" onChange={(e) => this.handleChange(e)}/>
                         <br></br>
@@ -69,9 +85,10 @@ class Login extends Component {
                     <div >
                     <p>Don't have an account? <Link to="/signup" style={{display: 'inline-grid'}}>create a new account</Link></p>
                     </div>
+
                     
                     {/* <button onClick={this.handleChange}>Sign Up</button> */}
-                    
+                    <NavBar history={this.props.history} />
                 </div>
            
          );

@@ -20,11 +20,11 @@ class PostCollection extends Component {
     }
 
 
-    componentDidMount() {
+    componentWillMount() {
         fetch('http://localhost:3000/posts')
             .then(res => res.json())
             .then( posts => {
-                console.log(posts.data)
+                // console.log(posts.data)
                 this.setState({
                     postCollection: posts.data
                 })
@@ -167,7 +167,7 @@ class PostCollection extends Component {
             <div>
 
                 {this.state.postCollection.map((p, i) => 
-                <Post key={i} post={p} handleDelete={this.handleDelete} increaseLikes={this.increaseLikes} toggleResolved={this.toggleResolved} getComments={this.getComments}/>)}
+                <Post key={i} post={p} handleDelete={this.handleDelete} increaseLikes={this.increaseLikes} toggleResolved={this.toggleResolved} getComments={this.getComments} />)}
                 
                 {/* <button onClick={this.posts}>get</button> */}
                 <Link to="/menu" >menu</Link>
