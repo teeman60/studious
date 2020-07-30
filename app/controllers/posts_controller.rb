@@ -29,8 +29,13 @@ class PostsController < ApplicationController
             # user_params[:id] = @user.id
             # byebug
             post = Post.find_by(id: params[:id])
+            # options = {
+            #     include: [:user, :comments]
+            # }
+            # byebug
+            # username = User.find_by(id: post[:user_id]).username
             # if user == @user
-            render json: PostSerializer.new(post)
+            render json: PostSerializer.new(post) 
      
     end
 
