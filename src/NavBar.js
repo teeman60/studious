@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import UserInfo from './UserInfo';
+import styled from 'styled-components'
+import '../src/Cards/card-style.css'
+import { MDBIcon, MDBBtn } from 'mdbreact'
+
 
 import logo from '../src/Assets/transp_img.png'
 
@@ -17,7 +21,7 @@ class NavBar extends Component {
 
 
 
-    componentDidMount() {
+    componentWillMount() {
         fetch(`http://localhost:3000/users/${localStorage.user_id}`, {
             method: 'GET',
             headers: {
@@ -38,11 +42,12 @@ class NavBar extends Component {
     }
 
 
-    getUser = () => {
-        console.log(this.state.user)
+    getUser = (user_id) => {
+        // debugger
+        // console.log(this.state.user)
         // <Link to="/chat" >chatroom</Link>
         // {<UserInfo user={this.state.user}/>}
-        this.props.history.push('/user')
+        this.props.history.push(`/users/${user_id}`)
     }
 
 
@@ -58,56 +63,59 @@ class NavBar extends Component {
 
     
     render() { 
-        
+        console.log(this.state.user)
 
-        // console.log(this.props.history)
-        if (localStorage.token ) {
+
             return  (             
             
-                <div>
-                    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <NavbarContainer>
+                    <nav className="navbar navbar-expand-lg navbar-light navbar-custom">
                         <img src={logo} alt="logo" style={{height:30, width:50}}/>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon" />
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav mr-auto">
-                                <li className="nav-item active">
+                            <ul className="navbar-nav mr-auto" style={{fontWeight: 'bold'}}>
+                                <li className="nav-item active" >
                                     <a className="nav-link" href="http://localhost:3001/menu">Home <span className="sr-only">(current)</span></a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Link</a>
-                                </li>
-                                <li className="nav-item dropdown">
+                                    <a className="nav-link" href="http://localhost:3001/chatroom">Chatroom</a>
+                                </li> 
+                                <li className="nav-item dropdown"> 
                                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Dropdown
+                                            Menu
                                     </a>
-                                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a className="dropdown-item" href="#">Action</a>
-                                    <a className="dropdown-item" href="#">Another action</a>
-                                    <div className="dropdown-divider" />
-                                    <a className="dropdown-item" href="#">Something else here</a>
-                                </div>
+                                    <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a className="dropdown-item" href="http://localhost:3001/menu">Ask A Question</a>
+                                        <a className="dropdown-item" href="http://localhost:3001/newappointment">Another action</a>
+                                        <div className="dropdown-divider" />
+                                        <a className="dropdown-item" href="#">Something else here</a>
+                                    </div>
                                 </li>
                                 <li className="nav-item">
-                                    <button className="nav-link disabled" onClick={this.logout} tabIndex={-1} aria-disabled="true">Logout</button>
+                                    {/* <button className="nav-link disabled" onClick={this.logout} tabIndex={-1} aria-disabled="true">Logout</button> */}
+                                    {/* <button className="btn btn-outline-success my-1 my-sm-0" onClick={this.logout}>Logout</button> */}
+                                    {/* <p><Link to="/" style={{display: 'inline-grid'}}>logout</Link></p> */}
                                 </li>
+                                <li className="nav-item" style={{fontStyle: 'italic', color: '#FF0000'}}>
+                                    <a className="nav-link" style={{color: 'brown'}} href="http://localhost:3001">Logout</a>
+                                </li> 
                             </ul>
              
-                            <button className="btn btn-outline-success my-1 my-sm-0" onClick={this.logout} type="submit">Profile</button>
+                            {/* <button className="btn btn-outline-success my-1 my-sm-0" onClick={() => {this.getUser(localStorage.user_id)}} type="submit">Profile</button> */}
+                            {/* <MDBBtn rounded size="md" gradient="purple"><MDBIcon icon="user-circle" /></MDBBtn> */}
+
+                            <MDBIcon onClick={() => {this.getUser(localStorage.user_id)}} style={{marginRight: '2rem'}} floating size="lg" icon="user-circle" />
+                            
                         </div>
                     </nav>                
-                        
-                        {/* profile */}
-                        {/* logout  */}
+
     
-                    </div>                
+                    </NavbarContainer>                
              ) 
             }
-            else {
-                return (<div></div>)
-             }
-        }
+        
 
         
          
@@ -115,3 +123,10 @@ class NavBar extends Component {
 }
  
 export default NavBar;
+
+
+
+const NavbarContainer = styled.div`
+background: var(--dark-green) !important;
+
+`;

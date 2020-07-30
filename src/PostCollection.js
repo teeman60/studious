@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import NewComment from './NewComment'
 import Post from './Post';
+import '../src/Cards/card-style.css'
+import NavBar from './NavBar';
+import Footer from './Footer'
+
 
 class PostCollection extends Component {
     // state = {  }
@@ -164,13 +168,15 @@ class PostCollection extends Component {
 
     render() { 
         return ( 
-            <div>
+            <div style={{backgroundColor: 'purple'}}>
+                <NavBar />
 
                 {this.state.postCollection.map((p, i) => 
                 <Post key={i} post={p} handleDelete={this.handleDelete} increaseLikes={this.increaseLikes} toggleResolved={this.toggleResolved} getComments={this.getComments} />)}
                 
                 {/* <button onClick={this.posts}>get</button> */}
-                <Link to="/menu" >menu</Link>
+                {/* <Link to="/menu" >menu</Link> */}
+                <Footer />
             </div> 
          );
     }

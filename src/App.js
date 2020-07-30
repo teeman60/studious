@@ -1,10 +1,10 @@
 // import React from 'react';
 import React, { Component, useState, useRef, useEffect } from 'react';
-import logo from './logo.svg';
+
 import SignUp from './SignUp';
 import Login from './Login';
-import './App.css';
-import NavBar from './NavBar';
+// import './App.css';
+// import NavBar from './NavBar';
 import Menu from './Menu';
 import UserInfo from './UserInfo';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
@@ -12,10 +12,15 @@ import NewAppointmentForm from './NewAppointmentForm';
 import Skill from './Skill';
 import Appointment from './Appointment'
 import NewPost from './NewPost';
-import Post from './Post';
+// import Post from './Post';
 import PostCollection from './PostCollection'
 import NewComment from './NewComment'
 import Chat from './Chat'
+import Header from './Header'
+// import './NewApp.scss'
+
+import New from './New'
+
 import {Link} from 'react-router-dom'
 // import Card from '../Cards/Cards'
 import './framework.css'
@@ -29,16 +34,70 @@ import Upload from './Upload'
 
 
 
-class App extends Component {
+class App extends React.Component {
+
 
   constructor() {
     super()
     this.state = {
-      isLoggedIn: true,
-      user: []
+        user: [],
+        username: "",
+        password: "",
+        isLoggedIn: false
     }
   }
 
+
+
+  handleChange = (e) => {
+    // debugger
+    this.setState({
+        [e.target.name]: e.target.value
+    })  
+         
+  }
+
+
+
+  login = (e) => {
+    // debugger
+    e.preventDefault()
+    
+    fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: this.state.username,
+            password: this.state.password
+        })
+                
+    })
+        .then(res => res.json())
+        .then(UserInfo => {
+            // debugger
+            if (UserInfo.token) {
+                localStorage.token = UserInfo.token 
+                localStorage.user_id = UserInfo.id
+                localStorage.user_name = UserInfo.username
+                this.setState({isLoggedIn: true}) 
+                this.props.history.push("/menu") 
+            } else {
+                alert("Invalid Username or password")
+            }
+             
+            // console.log(UserInfo)
+            
+        })      
+              
+  }
+
+
+
+  resetForm = () => {
+    this.setState({ username: '', password: '' })
+  }
 
 
 
@@ -88,38 +147,41 @@ class App extends Component {
 
       
        
-      <BrowserRouter> 
-         <NavBar /> 
             
         <div >
-        
-          
+
+          <Header />
+      <BrowserRouter> 
+      
+      
           <Switch>
 
-{/* 
-          <Route exact path="/nav"
-          render={(routeProps) => <NavBar {...routeProps} />} /> */}
-          
+               
           
 
           <Route exact path="/"
-          render={(routeProps) => <Login {...routeProps}/>} changeState={this.changeState} />
+          render={(routeProps) => <Login {...routeProps}/>} changeState={this.changeState} handleChange={this.handleChange} login={this.login} resetForm={this.resetForm}/>
 
           <Route exact path="/signup"
           render={(routeProps) => <SignUp {...routeProps}/>} changeState={this.changeState}/>
 
 
 
-          <Route exact path="/chat"
+          <Route exact path="/chatroom"
           render={(routeProps) => <Chat {...routeProps}/>} changeState={this.changeState}/>
 
 
           <Route exact path="/skills"
           render={(routeProps) => <Skill {...routeProps}/>}/>
+
+
+          <Route exact path="/new"
+          render={(routeProps) => <New {...routeProps}/>}/>
+          
           
 
 
-          <Route exact path="/user"
+          <Route exact path={`/users/:id`}
           render={(routeProps) => <UserInfo {...routeProps}/>} user={this.state.user}/>
 
           
@@ -142,21 +204,24 @@ class App extends Component {
           render={(routeProps) => <NewComment {...routeProps}/>} />
 
 
-          <Route exact path={`/posts/:id`}
+          <Route exact path={'/posts/:id'}
           render={(routeProps) => <NewPost {...routeProps}/>} />
 
-          {/* <Route exact path="/newpost"
-          component={NewPost}/> */}
-
+          
+           
 
           <Route exact path="/menu"
           render={(routeProps) => <Menu {...routeProps} />} />
       
                 
           </Switch>
-        
-        </div>
+
+          
+
       </BrowserRouter>
+         
+        </div>
+      
       
     );
   }

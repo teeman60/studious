@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import io from "socket.io-client";
+import { Link } from 'react-router-dom'
+
 
 const Page = styled.div`
   display: flex;
@@ -44,6 +46,19 @@ const TextArea = styled.textarea`
 `;
 
 const Button = styled.button`
+  background-color: greenyellow;
+  margin-top: 5px;
+  margin-left: 70px;
+  width: 50%;
+  border: none;
+  height: 50px;
+  border-radius: 10px;
+  color: #46516e;
+  font-size: 17px;
+`;
+
+
+const EButton = styled.button`
   background-color: greenyellow;
   margin-top: 5px;
   margin-left: 70px;
@@ -109,9 +124,9 @@ const Chat = () => {
       setYourID(id);
     })
 
-    socketRef.current.on("message", (message) => {
+    socketRef.current.on("message", (message) => {   //listens
       console.log("here");
-      receivedMessage(message);
+      receivedMessage(message);   //sends to server
     })
   }, []);
 
@@ -158,7 +173,14 @@ const Chat = () => {
       <Form onSubmit={sendMessage}>
         <TextArea value={message} onChange={handleChange} placeholder="Say something..." />
         <Button>Send</Button>
+        
+
       </Form>
+      {/* <Button style={{width: '100px'}}>Back</Button> */}
+      <p><Link to="/menu" style={{display: 'inline-grid', color: 'brown'}}>Go Back</Link></p>
+
+        {/* <Footer /> */}
+      {/* <EButton>Back</EButton> */}
     </Page>
   );
 };

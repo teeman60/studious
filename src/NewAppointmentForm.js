@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import NavBar from './NavBar'
+import styled, { createGlobalStyle, css } from 'styled-components'
+import Footer from './Footer';
+import img from '../src/Assets/appointment_img.png'
+import { Grid } from '@material-ui/core';
+
 
 
 class NewAppointmentForm extends Component {
@@ -41,7 +47,9 @@ class NewAppointmentForm extends Component {
 
 
     handleSubmit = (e) => {
+        debugger
         e.preventDefault()
+        e.target.reset();
         delete this.state['skills']
         let updated = this.state
         fetch('http://localhost:3000/appointments', {
@@ -67,29 +75,56 @@ class NewAppointmentForm extends Component {
     
     render() { 
         // console.log(this.props.skills)
+
+
+        const GlobalStyle = createGlobalStyle``
+        const sharedStyles = css``
+        const StyledFormWrapper = styled.div``
+        const StyledForm = styled.form``
+        const StyledInput = styled.input``
+        const StyledTextArea = styled.textarea``
+        const StyledButton = styled.button``
+        const StyledFieldset = styled.fieldset``
+        const StyledError = styled.div``
+
+
         return ( 
-            <div>
-                <form onSubmit={this.handleSubmit} >
+            <div style={{ height: '50rem', backgroundImage: `url(${img})`}}>
+
+
+                <NavBar history={this.props.history}/>
+                <div >
+                <form onSubmit={this.handleSubmit} style={{ marginTop: '5rem', marginLeft: '75rem', marginRight: '3rem'}}>
+                    <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Select Skill</label>
                     <select onChange={this.handleChange} name="skill_title" >
                         {this.state.skills.map(sk => <option key={sk.id} value={sk.attributes.title} >{sk.attributes.title}</option>)}
                     </select>
+                    <br></br>
 
-                    {/* <select onChange={this.handleChange} name="skill_id" value={this.state.name}>
-                        <option value="Programming with Python">"Programming with Python"</option>
-                        <option value="Basics of Redux">"Basics of Redux"</option>
-                        <option value="MySQL Fundamentals">"MySQL Fundamentals"</option>
-                        <option value="Mobile Application Programming With React-Native">"Mobile Application Programming With React-Native"</option>
-                        <option value="JavaScript Frameworks">"JavaScript Frameworks"</option>
-                    </select> */}
-
-
+                    <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Start Date</label>
                     <input type="date" placeholder="Start Date" name="start_date" onChange={this.handleChange} />
+                    <br></br>
+
+                    <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Prospective End Date</label>
                     <input type="date" placeholder="End Date" name="completion_date" onChange={this.handleChange} />
+                    <br></br>
+
+                    <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Max. Partners You Can Accommodate</label>
                     <input type="number" placeholder="Max. Partners" name="max_partners" onChange={this.handleChange} />
+                    <br></br>
                     <input type="submit"/> 
                 </form>
+
+                </div>
                 <br></br>
-                <p>Not interested in any of these? check out our <Link to="/skills" style={{display: 'inline-grid'}}> skills hub</Link></p>
+                <p style={{color: 'black', textAlign: 'right', marginRight: '3rem'}}>Not interested in any of these? check out our <Link to="/skills" style={{display: 'inline-grid'}}> skills hub</Link></p>
+                
+                    
+                    
+                    <Footer />
+
+                    
+
 
             </div>
          );
