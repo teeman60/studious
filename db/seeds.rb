@@ -27,6 +27,10 @@ u5 = User.create(username: "tray75", password_digest: "4tuy5sk9ndnne")
 p1 = Post.create(user_id: u1.id, content: "I am trying to get a math formula working but apparently not getting it right. Would like some help!!", resolved?: false, likes: 0)
 p2 = Post.create(user_id: u2.id, content: "I'm available all day in case anyone has some questions they want to ask", resolved?: false, likes: 0)
 p3 = Post.create(user_id: u3.id, content: "how do we begin to differentiate between when to apply brackets, parenthesis and curly braces?", resolved?: false, likes: 0)
+p4 = Post.create(user_id: u2.id, content: "Today I was having some challenges trying to set up a section of my backend. Apparently I couldn't use serializers better than I thought I could", resolved?: false, likes: 0)
+p5 = Post.create(user_id: u4.id, content: "I'm interested in knowing what people in the community think about Physics as relates to momentum. I feel I'm missing some basics and thus cannot understand beyond what I already know" , resolved?: false, likes: 0)
+p6 = Post.create(user_id: u5.id, content: "what does anyone recommend is a good way to actually understand rails routes", resolved?: false, likes: 0)
+
 
     
 
@@ -40,7 +44,11 @@ s5 = Skill.create(title: "JavaScript Frameworks", about: "Whether you’re learn
 
 c1 = Comment.create(post_id: p1.id, user_id: u1.id, content: "for anyone that wants to help, I'll have the question available here", likes: 0)
 c2 = Comment.create(post_id: p2.id, user_id: u2.id, content: "can I have a link up for where to find resources for a coding project?", likes: 0)
-c3 = Comment.create(post_id: p3.id, user_id: u3.id, content: "maybe use brackets by default since it works for other cases pretty well",likes: 0)
+c3 = Comment.create(post_id: p3.id, user_id: u5.id, content: "maybe use brackets by default since it works for other cases pretty well",likes: 0)
+c4 = Comment.create(post_id: p1.id, user_id: u1.id, content: "I might be able to help with some math. What's the question about? Can you send a link?",likes: 0)
+c5 = Comment.create(post_id: p2.id, user_id: u3.id, content: "Can you help me understand the concept of redux, javascript library?",likes: 0)
+c6 = Comment.create(post_id: p2.id, user_id: u4.id, content: "how much do you know about the pythagorean theorem?",likes: 0)
+
 
 
 
