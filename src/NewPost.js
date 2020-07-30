@@ -43,7 +43,7 @@ class NewPost extends Component {
 
 
     render() { 
-        console.log(this.state.new)
+        // console.log(this.state.new)
         return ( 
             
             <div>

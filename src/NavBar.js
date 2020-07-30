@@ -80,7 +80,7 @@ class NavBar extends Component {
                                     <a className="nav-link" href="http://localhost:3001/menu">Home <span className="sr-only">(current)</span></a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="http://localhost:3001/chatroom">Chatroom</a>
+                                    <a className="nav-link" href="http://localhost:3001/newappointment">Get Matched</a>
                                 </li> 
                                 <li className="nav-item dropdown"> 
                                     <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

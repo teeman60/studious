@@ -8,6 +8,8 @@ import Post from './Post'
 import { Link } from 'react-router-dom'
 import UserInfo from './UserInfo';
 import loginImg from '../src/Assets/loginImg.png'
+import img from '../src/Assets/login.jpg'
+import Header from './Header'
 // import './Login.scss'
 
 
@@ -43,6 +45,7 @@ class Login extends React.Component {
 
     login = (e) => {
         e.preventDefault()
+        e.target.reset()
         
         fetch('http://localhost:3000/login', {
             method: 'POST',
@@ -99,9 +102,9 @@ class Login extends React.Component {
 
           
         // https://www.ufv.ca/media/2015/headers/Safe-community-180714491.jpg
-        return (
+        return this.state.isLoggedIn ? (<div><Header logged = {this.state.isLoggedIn}/></div>) : (
                  
-                <div style={{ textAlign: 'center', height: '50rem', backgroundImage: "url(" + 'https://cdn.wallpapersafari.com/65/38/Cd7UkJ.jpg' + ")"}}>  
+                <div style={{ textAlign: 'center', height: '50rem', backgroundImage: `url(${img})`}}>  
                  
                     
                     <form onSubmit={(e) => this.login(e)} style={{display: 'inline-block', marginTop: '5rem'}} onReset={this.resetForm}>

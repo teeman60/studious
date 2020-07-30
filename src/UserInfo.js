@@ -55,7 +55,7 @@ class UserInfo extends Component {
 
     render() { 
 
-        console.log(this.state.user.posts)
+        // console.log(this.state.user.posts)
         return localStorage.token !== undefined && this.state.user !== null ? ( 
              
             <div style={{

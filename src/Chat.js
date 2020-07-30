@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import io from "socket.io-client";
 import { Link } from 'react-router-dom'
+import Footer from './Footer'
+import NavBar from "./NavBar";
 
 
 const Page = styled.div`
@@ -110,7 +112,7 @@ const PartnerMessage = styled.div`
   border-bottom-left-radius: 10%;
 `;
 
-const Chat = () => {
+const Chat = (props) => {
   const [yourID, setYourID] = useState();
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
@@ -150,6 +152,7 @@ const Chat = () => {
 
   return (
     <Page>
+      <NavBar history={props.history}/>
       <Container>
         {messages.map((message, index) => {
           if (message.id === yourID) {
@@ -179,8 +182,9 @@ const Chat = () => {
       {/* <Button style={{width: '100px'}}>Back</Button> */}
       <p><Link to="/menu" style={{display: 'inline-grid', color: 'brown'}}>Go Back</Link></p>
 
-        {/* <Footer /> */}
+        <Footer />
       {/* <EButton>Back</EButton> */}
+      
     </Page>
   );
 };

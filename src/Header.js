@@ -6,7 +6,7 @@ import '../src/Cards/card-style.css'
 
 
 
-export default function Header() {
+export default function Header(props) {
     return (
         <MainContainer>
             <h1>Studious</h1>

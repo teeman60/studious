@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 // import styled, {ThemeProvider} from 'styled-components'
 // import Others from './Cards/Others'
 // import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import img from '../src/Assets/menu.jpg'
 import Footer from './Footer'
 import img1 from '../src/Assets/new_question_hand.png'
 import img2 from '../src//Assets/set_goals.jpg'
@@ -60,14 +61,14 @@ class Menu extends Component {
     
     render() { 
 
-        console.log(this.state.user)
+        // console.log(this.state.user)
         
 
          
         return localStorage.token !== undefined ? (
             <div>
                 <NavBar history={this.props.history}/>
-                <div style={{textAlign: 'center', backgroundImage: "url(" + 'https://lh3.googleusercontent.com/proxy/XFvx4v3VV-WyWpfsfNr3RYMduRW29RZxztuc5Z5l7d1PUoWu-zevIFh9NbYIIBVf_bhB_PRASnUO4382D-4jOhSgwVEg0xKyJxZs9k8pb0mVuLelQN7vbFqBxCOfcwlXRsBLsKOFs9bj2nXue8wwvQ7wBKSjd3LjLq3_uZuruWM' + ")"}}>
+                <div style={{textAlign: 'center', backgroundImage: `url(${img})`}}>
                    
                    <div >
                       

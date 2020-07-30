@@ -95,21 +95,21 @@ class NewAppointmentForm extends Component {
                 <NavBar history={this.props.history}/>
                 <div >
                 <form onSubmit={this.handleSubmit} style={{ marginTop: '5rem', marginLeft: '75rem', marginRight: '3rem'}}>
-                    <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Select Skill</label>
+                    <label style={{color: 'brown', fontWeight: 'bold'}}>Select Skill</label>
                     <select onChange={this.handleChange} name="skill_title" >
                         {this.state.skills.map(sk => <option key={sk.id} value={sk.attributes.title} >{sk.attributes.title}</option>)}
                     </select>
                     <br></br>
 
-                    <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Start Date</label>
+                    <label style={{color: 'brown', fontWeight: 'bold'}}>Start Date</label>
                     <input type="date" placeholder="Start Date" name="start_date" onChange={this.handleChange} />
                     <br></br>
 
-                    <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Prospective End Date</label>
+                    <label style={{color: 'brown', fontWeight: 'bold'}}>Prospective End Date</label>
                     <input type="date" placeholder="End Date" name="completion_date" onChange={this.handleChange} />
                     <br></br>
 
-                    <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Max. Partners You Can Accommodate</label>
+                    <label style={{color: 'brown', fontWeight: 'bold'}}>Max. Partners You Can Accommodate</label>
                     <input type="number" placeholder="Max. Partners" name="max_partners" onChange={this.handleChange} />
                     <br></br>
                     <input type="submit"/> 

@@ -97,18 +97,20 @@ class Skill extends Component {
             
             <div> 
                 <NavBar history={this.props.history}/>
-                <button className="skillbutton" onClick={this.openNewSkillModal} style={{marginLeft: '50%', marginTop: '5px'}}>Add a new skill </button>
+                {/* <p><strong><Link to="/newappointment" style={{marginTop: '2rem', marginLeft: '40rem'}}>back to skill appointment</Link></strong></p> */}
+                {/* <button className="skillbutton" onClick={this.openNewSkillModal} style={{marginLeft: '50%', marginTop: '5px'}}>Add a new skill </button> */}
+                
                 <Modal isOpen = {this.state.displayForm} style={{content:{color:'brown', width: '40%', height: '57%', backgroundColor: 'skyblue'}}}>
                     <form onSubmit={this.handleSubmit}>
                         <label><strong>New Skill Entry:</strong></label>
                         <input className="skilltitle" type="text" name="title" placeholder="Proposed Title" onChange={this.handleChange} /><br></br>
                         <textarea className="skilltextarea" type="text" name="about" placeholder="A little facts about this skill" onChange={this.handleChange}/><br></br>
                         <textarea className="skillresources" type="text" name="resources" placeholder="Links about this skill you'd like to share. Separate by comma" onChange={this.handleChange}/><br></br>
-                        <input className="skillsubmit" type="submit"/> 
+                        <input className="skillsubmit" type="submit"/> <i class="fas fa-plus-circle"></i>
                     </form>
-                    <p className="seeall"><strong><Link to="/newappointment" style={{position: 'center'}}>back to skill appointment</Link></strong></p>
                     <button className="button" onClick={this.closeNewSkillModal}>X</button>
                 </Modal>
+                <i className="fas fa-plus-circle" onClick={this.openNewSkillModal} style={{marginLeft: '97rem', marginTop: '5rem', color: 'red'}}></i>
                 <br></br>
                 <br></br>
                 <div style={{marginLeft: '3rem', marginRight: '3rem'}}>
@@ -120,7 +122,7 @@ class Skill extends Component {
                     
                     <p>{sk.attributes.about}</p>
                     {sk.attributes.resources !== null ?
-                    <p>{sk.attributes.resources.split(", ").map(r => <li key={r.id}><a href={r}>{r}</a></li>)}</p>
+                    <p>{sk.attributes.resources.split(", ").map(r => <li className="list-unstyled" key={r.id}><a href={r}>{r}</a></li>)}</p>
                     
                     : null }<br></br><br></br>
                 </div>

@@ -8,7 +8,7 @@ function Footer() {
     const FooterContainer = styled.footer`
     background: #344;
     height: 13rem;
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
