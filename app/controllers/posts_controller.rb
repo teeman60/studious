@@ -43,6 +43,7 @@ class PostsController < ApplicationController
     def like 
         if @user 
         post = Post.find(params[:id])
+        # byebug
         post.likes += 1
         # post['resolved?'] = !post['resolved?']   # both resolved and likes are firing
         # byebug        
