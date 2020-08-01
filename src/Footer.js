@@ -43,8 +43,8 @@ function Footer() {
                           
 
                             <li><i className="fab fa-facebook-f"></i></li><br></br>
-                            <li><i class="fab fa-twitter"></i></li><br></br>
-                            <li><i class="fab fa-slack-hash"></i></li>
+                            <li><i className="fab fa-twitter"></i></li><br></br>
+                            <li><i className="fab fa-slack-hash"></i></li>
                         </ul>
                     </div>
 

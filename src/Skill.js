@@ -65,7 +65,7 @@ class Skill extends Component {
             this.setState({
                 skills: [...this.state.skills, newskill.data]
             })
-            alert("Your entry has been recorded")
+            // alert("Your entry has been recorded")
             this.closeNewSkillModal()
             this.props.history.push('skills')  
             

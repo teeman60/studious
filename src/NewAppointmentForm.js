@@ -65,9 +65,10 @@ class NewAppointmentForm extends Component {
         })
             .then(res => res.json())
             .then(na => {
-                console.log(na)
+                
             })
         // console.log(this.state)
+        alert("Appointment entry saved")
 
     }
 

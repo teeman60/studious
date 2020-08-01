@@ -15,7 +15,7 @@ class PostCollection extends Component {
         this.state = {
             postCollection: [],
             postContent: [],
-            // likes: 0,
+            likes: 0,
             // resolved: true || false,
             comments: [],
             createdAt: ""
@@ -169,10 +169,11 @@ class PostCollection extends Component {
     render() { 
         return ( 
             <div style={{backgroundColor: 'purple'}}>
-                <NavBar />
+                <NavBar history={this.props.history}/>
 
                 {this.state.postCollection.map((p, i) => 
                 <Post key={i} post={p} handleDelete={this.handleDelete} increaseLikes={this.increaseLikes} toggleResolved={this.toggleResolved} getComments={this.getComments} />)}
+                {/* {props.post.attributes.comments.map((c, i) => <p key={i}>{c}</p>)} */}
                 
                 {/* <button onClick={this.posts}>get</button> */}
                 {/* <Link to="/menu" >menu</Link> */}

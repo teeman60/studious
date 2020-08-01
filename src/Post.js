@@ -121,13 +121,18 @@ function Post (props) {
                                     <Typography style={{color: 'red'}}>{props.post.attributes.comments.length} {props.post.attributes.comments.length > 1 ? "comments" : "comment"}</Typography>
                                 </div>
                                 
-                            </form>
-                        
+                            </form>                       
                         
                         <br></br>
-                        <Typography paragraph>
+                        
+                        {props.post.attributes.comments !== null ?
+                        <p>{props.post.attributes.comments.map((c, i) => c.content)}</p>:
+                        <p></p>
+                        
+                    }
+                        {/* <Typography paragraph>
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                        </Typography>
+                        </Typography> */}
                         
                         </CardContent>
                     </Collapse>
