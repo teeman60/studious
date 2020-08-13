@@ -28,7 +28,7 @@ class Skill extends Component {
                 this.setState({
                     skills: att
             })
-            // console.log(this.state.skills)
+            
             })
     }
 
@@ -60,11 +60,10 @@ class Skill extends Component {
         })
         .then(res => res.json())
         .then( newskill => {
-            // console.log(newskill)
+            
             this.setState({
                 skills: [...this.state.skills, newskill.data]
             })
-            // alert("Your entry has been recorded")
             this.closeNewSkillModal()
             this.props.history.push('skills')  
             

@@ -9,7 +9,6 @@ import Skill from './Skill';
 import NewPost from './NewPost';
 import PostCollection from './PostCollection'
 import NewComment from './NewComment'
-// import Chat from './Chat'
 import Chat from './Chat_client/Chat.js'
 import Header from './Header'
 

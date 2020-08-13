@@ -15,7 +15,6 @@ class Cards extends Component {
         super()
         this.state = {
             content: "",
-            // new: [],
             showpost: false
         }
     }

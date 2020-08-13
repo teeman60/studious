@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class Comment extends Component {
-    // state = {  }
+    
     render() { 
         console.log(this.props.comment)
         console.log(this.props.number)

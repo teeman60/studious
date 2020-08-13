@@ -41,7 +41,7 @@ class NewAppointmentForm extends Component {
             [e.target.name]: e.target.value
 
         })
-        // console.log(e)
+        
     }
 
 
@@ -66,7 +66,7 @@ class NewAppointmentForm extends Component {
             .then(na => {
                 
             })
-        // console.log(this.state)
+        
         alert("Appointment entry saved")
 
     }

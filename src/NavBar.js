@@ -42,10 +42,6 @@ class NavBar extends Component {
 
 
     getUser = (user_id) => {
-        // debugger
-        // console.log(this.state.user)
-        // <Link to="/chat" >chatroom</Link>
-        // {<UserInfo user={this.state.user}/>}
         this.props.history.push(`/users/${user_id}`)
     }
 
@@ -62,7 +58,6 @@ class NavBar extends Component {
 
     
     render() { 
-        console.log(this.state.user)
 
 
             return  (             
@@ -92,18 +87,13 @@ class NavBar extends Component {
                                         {/* <a className="dropdown-item" href="#">Something else here</a> */}
                                     </div>
                                 </li>
-                                {/* <li className="nav-item">
-                                    
-                                </li> */}
+                               
                                 <li className="nav-item" style={{fontStyle: 'italic', color: '#FF0000'}}>
                                     <a className="nav-link" style={{color: 'brown'}} href="http://localhost:3001">Logout</a>
                                 </li> 
                             </ul>
-             
-                            {/* <button className="btn btn-outline-success my-1 my-sm-0" onClick={() => {this.getUser(localStorage.user_id)}} type="submit">Profile</button> */}
-                            {/* <MDBBtn rounded size="md" gradient="purple"><MDBIcon icon="user-circle" /></MDBBtn> */}
 
-                            <MDBIcon onClick={() => {this.getUser(localStorage.user_id)}} style={{marginRight: '2rem'}} floating size="lg" icon="user-circle" />
+                            <MDBIcon onClick={() => {this.getUser(localStorage.user_id)}} style={{marginRight: '2rem'}} size="lg" icon="user-circle" />
                             
                         </div>
                     </nav>                
