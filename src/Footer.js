@@ -1,7 +1,7 @@
 import React from 'react'
-import '../src/Cards/card-style.css'
+import './Cards/card-style.css'
 import styled from 'styled-components'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+
 
 
 function Footer() {

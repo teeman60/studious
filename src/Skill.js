@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import NewAppointmentForm from './NewAppointmentForm'
-import NavBar from './NavBar'
-import '../src/Cards/card-style.css'
-import { Link } from 'react-router-dom'
 
+import NavBar from './NavBar'
 
 import Modal from 'react-modal'
 import Footer from './Footer';
+
+import '../src/Cards/card-style.css'
 
 class Skill extends Component {
     
@@ -92,13 +91,11 @@ class Skill extends Component {
 
 
     render() { 
-        // console.log(this.state.skills)
+       
         return ( 
             
             <div> 
                 <NavBar history={this.props.history}/>
-                {/* <p><strong><Link to="/newappointment" style={{marginTop: '2rem', marginLeft: '40rem'}}>back to skill appointment</Link></strong></p> */}
-                {/* <button className="skillbutton" onClick={this.openNewSkillModal} style={{marginLeft: '50%', marginTop: '5px'}}>Add a new skill </button> */}
                 
                 <Modal isOpen = {this.state.displayForm} style={{content:{color:'brown', width: '40%', height: '57%', backgroundColor: 'skyblue'}}}>
                     <form onSubmit={this.handleSubmit}>
@@ -128,9 +125,6 @@ class Skill extends Component {
                 </div>
                 )}
                 </div>
-            {/* ruby is a good beginner-level programming language. It has an MVC-type structure and can provide both front and back end functionalities, although it's mostly used as a backend API server
-            https://skillcrush.com/blog/13-ruby-rails/, https://www.codecademy.com/learn/learn-rails
-            */}
             <Footer />
             </div>
          );

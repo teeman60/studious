@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-import img1 from '../src/Assets/sample_image.png'
 import { Link } from 'react-router-dom'
 import NavBar from './NavBar';
-import '../src/Cards/card-style.css'
-import { MDBIcon, MDBBtn } from 'mdbreact'
+import './Cards/card-style.css'
 import Footer from './Footer'
 
-// import { Button } from 'react-bootstrap'
-
+import img1 from './Assets/sample_image.png'
 
 
 class UserInfo extends Component {
-    // state = {  }
-
+   
     constructor() {
         super()
         this.state = {
@@ -39,7 +35,7 @@ class UserInfo extends Component {
                     user: user.data.attributes
                 })} else {alert("please log in")} 
             })
-            // console.log(this.state.user.appointments.length)
+            
     }
 
 
@@ -47,15 +43,10 @@ class UserInfo extends Component {
         localStorage.clear()
         this.props.history.push('/')
         
-    }
-
-
-    
+    }    
 
 
     render() { 
-
-        // console.log(this.state.user.posts)
         return localStorage.token !== undefined && this.state.user !== null ? ( 
              
             <div style={{
@@ -70,7 +61,7 @@ class UserInfo extends Component {
             <div style={{borderBottom: '1px solid magenta', width: '50%'}}>
               
                 <img style={{width: "160px", height:"160px", marginLeft: '10rem', borderRadius:"80px", borderBottom: '2px solid brown'}} 
-                  src={img1}
+                  src={img1} alt="user"
                 />
             </div>
 

@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import Comment from './Comment'
-import img from '../src/Assets/sample_image.png'
-import {Link} from 'react-router-dom'
-import '../src/Cards/card-style.css'
-import { MDBIcon, MDBBtn } from 'mdbreact'
+import React from 'react';
+// import Comment from './Comment'
+import img from './Assets/sample_image.png'
+
+import './Cards/card-style.css'
+import { MDBIcon} from 'mdbreact'
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
@@ -16,10 +15,8 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+
 
 
 
@@ -68,11 +65,9 @@ function Post (props) {
                     </Avatar>
                 }
                     action={
-                        // <i class="far fa-trash-alt"></i>
+                       
                     <IconButton >
                         <MDBIcon><i onClick={() => {props.handleDelete(props.post)}} className="far fa-trash-alt"></i></MDBIcon>
-                        
-                    {/* <MoreVertIcon /> */}
                     </IconButton>
                 }
                 title={<h6>{props.post.attributes.user.username}</h6>}
@@ -88,17 +83,11 @@ function Post (props) {
                 <CardActions disableSpacing>
                     <IconButton aria-label="add to favorites">
                     <i className="fa fa-heart" style={{color: 'red'}} onClick={() => props.increaseLikes(props.post)} aria-hidden="false"><p style={{color: 'black'}}>{props.post.attributes.likes}</p></i>
-                    {/* <FavoriteIcon style={{}} onClick={() => props.increaseLikes(props.post)}/>{props.post.attributes.likes} */}
-                    {/* <button onClick={() => props.increaseLikes(props.post)}>like ❤️️</button>{props.post.attributes.likes} */}
+
                     </IconButton>
                     <IconButton >
                     <button className="btn btn-sm" onClick={() => props.toggleResolved(props.post)}>{props.post.attributes['resolved?']?"Resolved":"Unresolved"}</button>
                     </IconButton>
-
-                    {/* <IconButton > */}
-                        {/* <button className="btn btn-outline-success my-1 my-sm-0" onClick={() => {props.handleDelete(props.post)}}>delete</button> */}
-
-                    {/* </IconButton> */}
                     
                     <IconButton 
                     className={clsx(classes.expand, {
@@ -125,14 +114,11 @@ function Post (props) {
                         
                         <br></br>
                         
-                        {props.post.attributes.comments !== null ?
-                        <p>{props.post.attributes.comments.map((c, i) => c.content)}</p>:
-                        <p></p>
-                        
-                    }
-                        {/* <Typography paragraph>
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-                        </Typography> */}
+                            {props.post.attributes.comments !== null ?
+                                <p>{props.post.attributes.comments.map((c, i) => c.content)}</p>:
+                                <p></p>
+                            
+                            }
                         
                         </CardContent>
                     </Collapse>

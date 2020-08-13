@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class Comment extends Component {
-    // state = {  }
 
     constructor() {
         super()
@@ -33,7 +32,7 @@ class Comment extends Component {
                     <textarea placeholder="make a comment about this post" value={this.state.content} onChange={this.handleChange} />
                     <input type="submit" />
                 </form>
-                <h3>comments to this post:</h3>
+                <h3>comments on this post:</h3>
                 {/* {this.props.c.content} */}
 
             </div>

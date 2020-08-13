@@ -1,16 +1,12 @@
-import React, { useState, Component } from 'react';
-import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import SignUp from './SignUp';
-import NavBar from './NavBar'
-import Post from './Post'
-import { Link } from 'react-router-dom'
-import UserInfo from './UserInfo';
-import loginImg from '../src/Assets/loginImg.png'
-import img from '../src/Assets/login.jpg'
+import React from 'react';
+
 import Header from './Header'
-// import './Login.scss'
+
+import { Link } from 'react-router-dom'
+
+import img from '../src/Assets/login.jpg'
+
+
 
 
 
@@ -20,11 +16,10 @@ import Header from './Header'
 
 
 class Login extends React.Component {
-    // state = {  }
-
+   
     constructor() {
         super()
-        this.state = {
+          this.state = {
             user: [],
             username: "",
             password: "",
@@ -34,7 +29,7 @@ class Login extends React.Component {
 
 
     handleChange = (e) => {
-        // debugger
+       
         this.setState({
             [e.target.name]: e.target.value
         })  
@@ -60,7 +55,7 @@ class Login extends React.Component {
         })
             .then(res => res.json())
             .then(UserInfo => {
-                // debugger
+              
                 if (UserInfo.token) {
                     localStorage.token = UserInfo.token 
                     localStorage.user_id = UserInfo.id
@@ -71,7 +66,7 @@ class Login extends React.Component {
                     alert("Invalid Username or password")
                 }
                  
-                // console.log(UserInfo)
+                
                 
             })      
                   
@@ -87,21 +82,7 @@ class Login extends React.Component {
 
 
     render() { 
-        // const useStyles = makeStyles((theme) => ({
-        //     root: {
-        //       '& .MuiTextField-root': {
-        //         margin: theme.spacing(1),
-        //         width: '25ch',
-        //       },
-        //     },
-            
-        //   }
-        //   ));
 
-        //   const classes = useStyles();
-
-          
-        // https://www.ufv.ca/media/2015/headers/Safe-community-180714491.jpg
         return this.state.isLoggedIn ? (<div><Header logged = {this.state.isLoggedIn}/></div>) : (
                  
                 <div style={{ textAlign: 'center', height: '50rem', backgroundImage: `url(${img})`}}>  
@@ -116,7 +97,7 @@ class Login extends React.Component {
                         <input type="submit" style={{display: 'inline-block', color: 'green', marginTop: '0.5rem'}}></input>
                     </form><br></br>
                     <div ><br></br>
-                    <p>Don't have an account? <Link to="/signup" style={{display: 'inline-grid', color: 'greenyellow'}}>create a new account</Link></p>
+                        <p>Don't have an account? <Link to="/signup" style={{display: 'inline-grid', color: 'greenyellow'}}>create a new account</Link></p>
                     </div>                 
                 </div>               
            

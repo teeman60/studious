@@ -1,8 +1,8 @@
-import React, { Component, useState } from 'react';
+import React, { Component} from 'react';
 import './card-style.css'
-import Post from '../Post'
+
 import {Link} from 'react-router-dom'
-import { MDBInput } from "mdbreact";
+
 import Modal from 'react-modal'
 Modal.setAppElement('#root')
 
@@ -47,7 +47,7 @@ class Cards extends Component {
             })
         }) 
         this.hidePostModal()
-        // this.props.history.push('postcollection')   
+          
         
     }
 
@@ -65,7 +65,7 @@ class Cards extends Component {
         } else {
             this.props.history.push('skills')
         }
-        // 
+        
          
     }
 
@@ -82,23 +82,20 @@ class Cards extends Component {
       
 
 
-    render() {
-   
-        
+    render() {        
 
         return(
             <div className="card text-center shadow" style={{display: 'inline-grid'}}>
                 <div className="overflow">
-                    <img src={this.props.imgsrc} alt="image 1" className="card-img-top" />
+                    <img src={this.props.imgsrc} alt="first 1" className="card-img-top" />
                 </div>
                 <div className="card-body text-dark">
                     <h4 className="card-title">{this.props.title}</h4>
                     <p className="card-text text-secondary"> {this.props.about}</p>
-                <button onClick={() => {this.goToLink()}} className="btn btn-outline-success">{this.props.button}</button>
+                    <button onClick={() => {this.goToLink()}} className="btn btn-outline-success">{this.props.button}</button>
                 </div>
 
-                {/* <button onClick={() => setModalIsOpen(true)}>create new</button> */}
-                <Modal  isOpen={this.state.showpost} style={{content:{color:'greenyellow', width: '30%', height: '35%', backgroundColor: 'skyblue', backgroundImage: "url(" + 'https://all4desktop.com/data_images/original/4235894-cool-background.jpg' + ")"}}}>
+                <Modal isOpen={this.state.showpost} style={{content:{color:'greenyellow', width: '30%', height: '35%', backgroundColor: 'skyblue', backgroundImage: `url(" + 'https://all4desktop.com/data_images/original/4235894-cool-background.jpg' + ")`}}}>
                     <form onSubmit={(e) => this.handleSubmit(e, this.state.content)}>
                         <label><strong>Ask The Student Community:</strong></label>
                                    
@@ -108,8 +105,6 @@ class Cards extends Component {
                     <button className="button" onClick={this.hidePostModal}>X</button>
                     <p className="seeall"><strong><Link to="/postcollection" style={{position: 'center', color: 'greenyellow'}}>see all posts</Link></strong></p>
                 </Modal>
-
-                {/* {this.state.new.length > 0 ? <Post newpost={this.state.content} />: null } */}
             </div>
         )
     }

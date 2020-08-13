@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import PostCollection from './PostCollection';
-import Post from './Post'
 import '../src/Cards/card-style.css'
 import Modal from 'react-modal'
 
@@ -8,12 +6,10 @@ Modal.setAppElement('#root')
 
 
 class NewPost extends Component {
-    // state = {  }
-
+    
     constructor() {
         super()
         this.state = {
-            // content: "",
             new: []
             
         }
@@ -34,7 +30,7 @@ class NewPost extends Component {
                 this.setState({
                     new: post.data.attributes
                 })
-                // console.log(this.state.new)
+               
             })
     }
 
@@ -43,7 +39,7 @@ class NewPost extends Component {
 
 
     render() { 
-        // console.log(this.state.new)
+   
         return ( 
             
             <div>

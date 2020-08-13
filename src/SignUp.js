@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import loginImg from '../src/Assets/loginImg.png'
-// import './Login.scss'
+
 
 
 
@@ -46,7 +45,7 @@ class SignUp extends Component {
                         
 
 
-                <div style={{ textAlign: 'center', height: '50rem', backgroundImage: "url(" + 'https://cdn.wallpapersafari.com/65/38/Cd7UkJ.jpg' + ")"}}>  
+                <div style={{ textAlign: 'center', height: '50rem', backgroundImage: `url(" + 'https://cdn.wallpapersafari.com/65/38/Cd7UkJ.jpg' + ")`}}>  
                  
                     {/* <h2 style={{color: 'white'}}>Create An Account</h2> */}
                     <form onSubmit={(e) => this.signUp(e)} style={{display: 'inline-block', marginTop: '5rem'}} onReset={this.resetForm}>

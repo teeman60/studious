@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import NavBar from './NavBar'
-import styled, { createGlobalStyle, css } from 'styled-components'
 import Footer from './Footer';
 import img from '../src/Assets/appointment_img.png'
-import { Grid } from '@material-ui/core';
+
 
 
 
@@ -30,7 +29,7 @@ class NewAppointmentForm extends Component {
                 this.setState({
                     skills: att
             })
-            // console.log(this.state.skills)
+           
             })
     }
 
@@ -75,18 +74,6 @@ class NewAppointmentForm extends Component {
 
     
     render() { 
-        // console.log(this.props.skills)
-
-
-        const GlobalStyle = createGlobalStyle``
-        const sharedStyles = css``
-        const StyledFormWrapper = styled.div``
-        const StyledForm = styled.form``
-        const StyledInput = styled.input``
-        const StyledTextArea = styled.textarea``
-        const StyledButton = styled.button``
-        const StyledFieldset = styled.fieldset``
-        const StyledError = styled.div``
 
 
         return ( 
@@ -122,7 +109,7 @@ class NewAppointmentForm extends Component {
                 
                     
                     
-                    <Footer />
+                <Footer />
 
                     
 

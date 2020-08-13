@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import io from "socket.io-client";
 import { Link } from 'react-router-dom'
-import Footer from './Footer'
-import NavBar from "./NavBar";
+import Footer from '../Footer'
+import NavBar from '../NavBar.js';
 
 
 const Page = styled.div`
@@ -167,7 +167,7 @@ const Chat = (props) => {
         
 
       </Form>
-      {/* <Button style={{width: '100px'}}>Back</Button> */}
+      
       <p><Link to="/menu" style={{display: 'inline-grid', color: 'brown'}}>Go Back</Link></p>
 
         <Footer />

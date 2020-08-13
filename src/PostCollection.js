@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import NewComment from './NewComment'
 import Post from './Post';
-import '../src/Cards/card-style.css'
+import './Cards/card-style.css'
 import NavBar from './NavBar';
 import Footer from './Footer'
 
 
 class PostCollection extends Component {
-    // state = {  }
-
+    
     constructor() {
         super()
         this.state = {

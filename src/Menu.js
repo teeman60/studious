@@ -1,31 +1,28 @@
 import React, { Component } from 'react';
-import PostCollection from './PostCollection';
-import {Link} from 'react-router-dom'
-// import styled from 'styled-components';
-// import styled, {ThemeProvider} from 'styled-components'
-// import Others from './Cards/Others'
-// import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import img from '../src/Assets/menu.jpg'
 import Footer from './Footer'
+
+import {Link} from 'react-router-dom'
+
+import img from '../src/Assets/menu.jpg'
 import img1 from '../src/Assets/new_question_hand.png'
 import img2 from '../src//Assets/set_goals.jpg'
 import img3 from '../src//Assets/forum_discussions.png'
 import img4 from '../src/Assets/skills.jpg'
+
+
 import Modal from 'react-modal'
 
 
 
 import Card from '../src/Cards/Cards'
-import UserInfo from './UserInfo';
 import NavBar from './NavBar';
+
 Modal.setAppElement('#root')
 
 
 
 
 class Menu extends Component {
-    // state = {  }
-
 
     constructor () {
         super()
@@ -35,50 +32,15 @@ class Menu extends Component {
     }
 
 
-
-    // componentDidMount() {
-    //     fetch(`http://localhost:3000/users/${localStorage.user_id}`, {
-    //         method: 'GET',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'Accept': 'application/json',
-    //             'Authorization': `Bearer ${localStorage.token}`
-    //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then(user => {
-    //             this.setState({
-    //                 user: [... this.state.user, user.data.attributes]
-    //             })
-                
-    //             // {<UserInfo gty={user.data.attributes} />}
-    //             console.log(user.data.attributes.username)
-    //             console.log(this.state.user)
-    //         })
-            
-    // }
-
     
     render() { 
-
-        // console.log(this.state.user)
-        
-
          
         return localStorage.token !== undefined ? (
             <div>
                 <NavBar history={this.props.history}/>
                 <div style={{textAlign: 'center', backgroundImage: `url(${img})`}}>
                    
-                   <div >
-                      
-                   </div>
-
-                  
-
-                   <div >
-                      
-                   </div>
+                   
                    <div className="container-fluid d-flex justify-content-center">
                     <div className="row">
                     {/* <Modal> */}
@@ -95,7 +57,6 @@ class Menu extends Component {
                     <div className="col-md-4 fourthcard">
                         <Card imgsrc={img4} history={this.props.history} title="Skills Section" button="Skills Hub" link="skills" about="Check out our skills section for a list of cool 21st century skills to have. Feel free to add yours if you have some other ones and we'll review them."/>
                     </div>
-                    {/* <UserInfo user={this.state.user}/> */}
                     
                   </div>
 
