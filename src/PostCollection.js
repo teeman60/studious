@@ -13,7 +13,6 @@ class PostCollection extends Component {
             postCollection: [],
             postContent: [],
             likes: 0,
-            // resolved: true || false,
             comments: [],
             createdAt: ""
             
@@ -25,7 +24,6 @@ class PostCollection extends Component {
         fetch('http://localhost:3000/posts')
             .then(res => res.json())
             .then( posts => {
-                // console.log(posts.data)
                 this.setState({
                     postCollection: posts.data
                 })
@@ -36,9 +34,6 @@ class PostCollection extends Component {
 
     toggleResolved = (post) => {
         // debugger
-        
-        // localStorage.user_id === post.attributes.user_id       //saying I'm not authorized
-        // ?
 
         fetch(`http://localhost:3000/posts/resolve/${post.id}`, {
             method: 'PATCH',
@@ -56,46 +51,17 @@ class PostCollection extends Component {
             .then(res => res.json())
             .then(post => {
                 this.setState({
-                    // resolved: post.attributes['resolved?']   //how did this work?
 
                 })
             })
-            // :
-            // alert("You're not authorized to change this")
+           
         
     }
 
 
     getComments = (post) => {
         // debugger
-
         this.props.history.push("/comment")
-        
-        // let filtered = this.state.collection.filter(p => p === post)
-        // this.setState({
-        //     comments: p.attributes.comments         
-        // })
-        // console.log(this.state.comments)
-
-        // debugger
-        // console.log(this.state.collection)
-        // fetch('http://localhost:3000/posts') 
-        // {
-        //     method: 'GET',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         'Accept': 'application/json',
-        //         'Authorization': `Bearer ${localStorage.token}`
-        //     },
-        //     body: JSON.stringify(
-        //         post
-        //     )
-        // }
-        // .then(res => res.json())
-        // .then( posts => {
-        //     let aa = posts.data.filter(p => p.id === post.id)
-        //     console.log(aa.attributes.comments)
-        // })
     }
 
 
@@ -120,7 +86,7 @@ class PostCollection extends Component {
         )
             .then(res => res.json())
             .then( post => {
-                // console.log(post)
+                
                 this.setState({
                     likes: post.data.attributes.likes
                 })
@@ -135,24 +101,15 @@ class PostCollection extends Component {
 
 
     handleDelete = (post) => {
-        // debugger
-
-        // if (localStorage.user_id === post.attributes.user_id) {     #the condition is not working as should   
-         
+        // debugger  
         this.setState({
             postCollection: this.state.postCollection.filter(p => p !== post)
         })
-        // else {
-        //     alert("You're not not authorized to delete this post")
-        // }
-         
-        
-
         fetch(`http://localhost:3000/posts/${post.id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                // 'Accept': 'application/json',
+                'Accept': 'application/json',
                 'Authorization': `Bearer ${localStorage.token}`
             }
             
@@ -171,9 +128,6 @@ class PostCollection extends Component {
                 {this.state.postCollection.map((p, i) => 
                 <Post key={i} post={p} handleDelete={this.handleDelete} increaseLikes={this.increaseLikes} toggleResolved={this.toggleResolved} getComments={this.getComments} />)}
                 {/* {props.post.attributes.comments.map((c, i) => <p key={i}>{c}</p>)} */}
-                
-                {/* <button onClick={this.posts}>get</button> */}
-                {/* <Link to="/menu" >menu</Link> */}
                 <Footer />
             </div> 
          );

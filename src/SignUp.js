@@ -30,8 +30,6 @@ class SignUp extends Component {
             })
             
         })
-            // .then(res => res.json())
-            // .then(console.log)
             alert("New Account Created")
             this.props.history.push("/")
     }
@@ -41,13 +39,7 @@ class SignUp extends Component {
         return ( 
 
             <div>
-
-                        
-
-
                 <div style={{ textAlign: 'center', height: '50rem', backgroundImage: `url(" + 'https://cdn.wallpapersafari.com/65/38/Cd7UkJ.jpg' + ")`}}>  
-                 
-                    {/* <h2 style={{color: 'white'}}>Create An Account</h2> */}
                     <form onSubmit={(e) => this.signUp(e)} style={{display: 'inline-block', marginTop: '5rem'}} onReset={this.resetForm}>
                         <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Username</label>
                         <input name="username" type="text" placeholder="Enter username" onChange={(e) => this.handleChange(e)}/>
@@ -64,11 +56,8 @@ class SignUp extends Component {
                         <input type="submit" style={{display: 'inline-block', color: 'green', marginTop: '0.5rem'}}></input>
                     </form><br></br>
                     <p>Already have an account? <Link to="/" style={{display: 'inline-grid', color: 'greenyellow'}}>go back to Login</Link></p>
-
-                    <div ><br></br>
-                    
-                    </div>                 
-             </div>
+               
+                </div>
                                           
 
             </div>

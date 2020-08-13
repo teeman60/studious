@@ -29,7 +29,6 @@ class UserInfo extends Component {
         })
             .then(res => res.json())
             .then(user => {
-                // console.log(user)
                 if (localStorage.token) {
                 this.setState({
                     user: user.data.attributes
@@ -53,8 +52,6 @@ class UserInfo extends Component {
                 display: "inline",
                 justifyContent: "space-around",
                 margin: "0rem 0rem",
-                // borderBottom: "1px solid brown",
-                // backgroundImage
             }}>
             <NavBar history={this.props.history}/>
 
@@ -93,12 +90,7 @@ class UserInfo extends Component {
                         <h6> <Link to="/chatroom" >chatroom</Link></h6></label>
                         <label>inactive chatrooms:</label>
                         <button className="btn-danger"  onClick={this.logout} style={{width: '5rem'}}>Logout</button>
-                        
-                        {/* <Button variant="outline-danger">Danger</Button>{' '} */}
-                        {/* <h6>link to logout</h6> */}
-                    </div>
-                    
-
+                    </div>         
                 </div>
                 <Footer />
             </div>
