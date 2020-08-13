@@ -4,9 +4,6 @@ class UsersController < ApplicationController #Api::V1:: before userscontroller
 
     def index
         users = User.all
-        # options = {
-        #     include: [:post, :comment, :appointment]
-        # }
         render json: UserSerializer.new(users)
     end
 
@@ -24,12 +21,8 @@ class UsersController < ApplicationController #Api::V1:: before userscontroller
     end
 
 
-
     def show 
-        # user_params[:id] = @user.id
-        # byebug
         user = User.find_by(id: params[:id])
-        # if user == @user
         render json: UserSerializer.new(user)
         
     end

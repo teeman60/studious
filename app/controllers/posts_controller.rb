@@ -14,29 +14,16 @@ class PostsController < ApplicationController
         post_params[:likes] = 0
         # byebug
         post = Post.create(post_params)
-        # if post.user_id == @user.id
-           post.save
-           render json: PostSerializer.new(post)
-        #    byebug
-        # end
         
+           post.save
+           render json: PostSerializer.new(post)    
     end
 
 
-    def show
-      
-       
-            # user_params[:id] = @user.id
-            # byebug
-            post = Post.find_by(id: params[:id])
-            # options = {
-            #     include: [:user, :comments]
-            # }
-            # byebug
-            # username = User.find_by(id: post[:user_id]).username
-            # if user == @user
-            render json: PostSerializer.new(post) 
-     
+    def show           
+        # byebug
+        post = Post.find_by(id: params[:id])            
+        render json: PostSerializer.new(post)      
     end
 
 
@@ -44,12 +31,9 @@ class PostsController < ApplicationController
         if @user 
         post = Post.find(params[:id])
         # byebug
-        post.likes += 1
-        # post['resolved?'] = !post['resolved?']   # both resolved and likes are firing
-        # byebug        
+        post.likes += 1        
         post.save
-        render json: PostSerializer.new(post)
-        
+        render json: PostSerializer.new(post)        
         end
 
     end

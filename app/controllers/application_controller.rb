@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
 
     def encode_token(payload)
         JWT.encode(payload, "softwaredeveloper")
-        # JWT.encode(payload, "se042020", "HS256")
+        
     end
 
     def logged_in?
@@ -25,8 +25,5 @@ class ApplicationController < ActionController::API
         render json: {error: "Please LogIn"} unless @user
         # byebug
     end
-
-    # def find_skill_id
-    # end
 
 end

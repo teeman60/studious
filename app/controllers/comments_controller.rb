@@ -10,14 +10,13 @@ class CommentsController < ApplicationController
     def create
         # byebug
         comment_params[:user_id] = @user.id
-        # comment_params[:resolved?] = false
+        
         comment_params[:likes] = 0
         byebug
         comment = Comment.create(comment_params)
-        # if comment.user_id == @user.id
-        #    comment.save
+        
            render json: CommentSerializer.new(comment)
-        # end
+        
         
     end
 

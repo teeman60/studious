@@ -14,10 +14,7 @@ class SkillsController < ApplicationController
     end
 
     def show 
-        # user_params[:id] = @user.id
-        # byebug
         skill = Skill.find_by(id: params[:id])
-        # if user == @user
         render json: SkillSerializer.new(skill)
         
     end
