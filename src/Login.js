@@ -1,27 +1,46 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import SignUp from './SignUp';
-import NavBar from './NavBar'
-import { Link } from 'react-router-dom'
-import UserInfo from './UserInfo';
+import React from 'react';
 
-class Login extends Component {
-    // state = {  }
+import Header from './Header'
+
+import { Link } from 'react-router-dom'
+
+import img from '../src/Assets/login.jpg'
+
+
+
+
+
+
+
+
+
+
+class Login extends React.Component {
+   
+    constructor() {
+        super()
+          this.state = {
+            user: [],
+            username: "",
+            password: "",
+            isLoggedIn: false
+        }
+    }
 
 
     handleChange = (e) => {
-        // debugger
+       
         this.setState({
             [e.target.name]: e.target.value
         })  
              
     }
 
-
-   
+  
 
     login = (e) => {
         e.preventDefault()
+        e.target.reset()
         
         fetch('http://localhost:3000/login', {
             method: 'POST',
@@ -36,34 +55,51 @@ class Login extends Component {
         })
             .then(res => res.json())
             .then(UserInfo => {
-                localStorage.token = UserInfo.token
-            })
-
-            this.props.history.push("/menu") 
-
+              
+                if (UserInfo.token) {
+                    localStorage.token = UserInfo.token 
+                    localStorage.user_id = UserInfo.id
+                    localStorage.user_name = UserInfo.username
+                    this.setState({isLoggedIn: true}) 
+                    this.props.history.push("/menu") 
+                } else {
+                    alert("Invalid Username or password")
+                }
+                 
+                
+                
+            })      
+                  
     }
 
 
+    resetForm = () => {
+        this.setState({ username: '', password: '' })
+    }
+
+
+   
+
+
     render() { 
-        return (
+
+        return this.state.isLoggedIn ? (<div><Header logged = {this.state.isLoggedIn}/></div>) : (
                  
-                <div className="fill-window" style={{textAlign: 'center', backgroundImage: "url(" + 'https://www.ufv.ca/media/2015/headers/Safe-community-180714491.jpg' + ")"}}>  
-                    <h2 style={{textAlign: 'center', color: 'indigo'}}>Welcome To Better Students</h2>       
+                <div style={{ textAlign: 'center', height: '50rem', backgroundImage: `url(${img})`}}>  
+                 
                     
-                    <form onSubmit={(e) => this.login(e)} style={{display: 'inline-block'}}>
-                        {/* <label style={{color: 'lightgreen'}}>Username</label> */}
-                        <input name="username" type="text" placeholder="username" onChange={(e) => this.handleChange(e)}/>
-                        {/* <label style={{color: 'lightgreen'}}>Password</label> */}<br></br>
-                        <input name="password" type="password" placeholder="password" onChange={(e) => this.handleChange(e)}/>
-                        <input type="submit" style={{display: 'inline-block', color: 'green'}}></input>
+                    <form onSubmit={(e) => this.login(e)} style={{display: 'inline-block', marginTop: '5rem'}} onReset={this.resetForm}>
+                        <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Username</label>
+                        <input name="username" type="text" placeholder="Enter username" onChange={(e) => this.handleChange(e)}/>
+                        <br></br>
+                        <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Password</label>
+                        <input name="password" type="password" placeholder=" Enter password" onChange={(e) => this.handleChange(e)}/>
+                        <input type="submit" style={{display: 'inline-block', color: 'green', marginTop: '0.5rem'}}></input>
                     </form><br></br>
-                    <div >
-                    <p>Don't have an account? <Link to="/signup" style={{display: 'inline-grid'}}>create a new account</Link></p>
-                    </div>
-                    
-                    {/* <button onClick={this.handleChange}>Sign Up</button> */}
-                    
-                </div>
+                    <div ><br></br>
+                        <p>Don't have an account? <Link to="/signup" style={{display: 'inline-grid', color: 'greenyellow'}}>create a new account</Link></p>
+                    </div>                 
+                </div>               
            
          );
     }
