@@ -1,0 +1,36 @@
+Arguments: 
+  /Users/teewhy/.nvm/versions/node/v14.4.0/bin/node /Users/teewhy/.nvm/versions/node/v14.4.0/bin/yarn init
+
+PATH: 
+  /Users/teewhy/.rvm/gems/ruby-2.6.1/bin:/Users/teewhy/.rvm/gems/ruby-2.6.1@global/bin:/Users/teewhy/.rvm/rubies/ruby-2.6.1/bin:/Users/teewhy/.nvm/versions/node/v14.4.0/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/teewhy/.rvm/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  14.4.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (/Users/teewhy/.nvm/versions/node/v14.4.0/lib/node_modules/yarn/lib/cli.js:137008:13)
+      at Interface.emit (events.js:315:20)
+      at Interface._ttyWrite (readline.js:873:16)
+      at ReadStream.onkeypress (readline.js:213:10)
+      at ReadStream.emit (events.js:315:20)
+      at emitKeys (internal/readline/utils.js:335:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1140:36)
+      at ReadStream.emit (events.js:315:20)
+      at addChunk (_stream_readable.js:302:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
