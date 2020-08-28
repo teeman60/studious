@@ -37,4 +37,28 @@ I used material UI, inline-styling and bootstrap to provide some beautiful effec
 - Persistence of chat messages to backend (currently there's just an array of messages displayed on screen which clears on page refresh)
 
 
+
+## To Launch This Application:
+
+** You'd need 3 terminals open
+
+- Fork this repo 
+- cd into server, run bundle install
+- start the rails server by running rails s
+- cd into client in a different terminal, run npm install
+- run npm start. Type 'Y' in the prompt that follows
+- cd into chat in a third terminal, run 'node server.js'
+- You are now in the application and can navigate as you wish
+
+
+## Tech Stack
+
+- React js
+- Ruby on Rails
+- Node js 
+- Socket.io
+- SQLite
+- Bootstrap
+- Material UI
+
 By: Taiye Salami, 2020
