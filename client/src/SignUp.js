@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import img from '../src/Assets/login.jpg'
 
 
 
@@ -39,7 +40,7 @@ class SignUp extends Component {
         return ( 
 
             <div>
-                <div style={{ textAlign: 'center', height: '50rem', backgroundImage: `url(" + 'https://cdn.wallpapersafari.com/65/38/Cd7UkJ.jpg' + ")`}}>  
+                <div style={{ textAlign: 'center', height: '50rem', backgroundImage: `url(${img})`}}>  
                     <form onSubmit={(e) => this.signUp(e)} style={{display: 'inline-block', marginTop: '5rem'}} onReset={this.resetForm}>
                         <label style={{color: 'greenyellow', fontWeight: 'bold'}}>Username</label>
                         <input name="username" type="text" placeholder="Enter username" onChange={(e) => this.handleChange(e)}/>
