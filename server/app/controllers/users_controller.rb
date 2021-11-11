@@ -24,14 +24,7 @@ class UsersController < ApplicationController #Api::V1:: before userscontroller
     def show 
         user = User.find_by(id: params[:id])
         render json: UserSerializer.new(user)
-        byebug
-        
-    end
-
-    def show 
-        user = User.find_by(id: params[:id])
-        render json: UserSerializer.new(user)
-        byebug
+        # byebug
         
     end
 
