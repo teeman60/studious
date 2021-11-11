@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/studious/static/css/main.ac020115.chunk.css",
+    "main.js": "/studious/static/js/main.f6e10805.chunk.js",
+    "main.js.map": "/studious/static/js/main.f6e10805.chunk.js.map",
+    "runtime-main.js": "/studious/static/js/runtime-main.5921cfc5.js",
+    "runtime-main.js.map": "/studious/static/js/runtime-main.5921cfc5.js.map",
+    "static/css/2.ace1fa04.chunk.css": "/studious/static/css/2.ace1fa04.chunk.css",
+    "static/js/2.6d269d5e.chunk.js": "/studious/static/js/2.6d269d5e.chunk.js",
+    "static/js/2.6d269d5e.chunk.js.map": "/studious/static/js/2.6d269d5e.chunk.js.map",
+    "index.html": "/studious/index.html",
+    "precache-manifest.324d947fa47b023db1bd6b860288e16a.js": "/studious/precache-manifest.324d947fa47b023db1bd6b860288e16a.js",
+    "service-worker.js": "/studious/service-worker.js",
+    "static/css/2.ace1fa04.chunk.css.map": "/studious/static/css/2.ace1fa04.chunk.css.map",
+    "static/css/main.ac020115.chunk.css.map": "/studious/static/css/main.ac020115.chunk.css.map",
+    "static/js/2.6d269d5e.chunk.js.LICENSE.txt": "/studious/static/js/2.6d269d5e.chunk.js.LICENSE.txt",
+    "static/media/appointment_img.png": "/studious/static/media/appointment_img.eb58a905.png",
+    "static/media/mdb.css": "/studious/static/media/arrow_right.8ef6a08c.svg",
+    "static/media/all.min.css": "/studious/static/media/fa-solid-900.ee09ad75.woff",
+    "static/media/forum_discussions.png": "/studious/static/media/forum_discussions.bab7849b.png",
+    "static/media/header_img.jpg": "/studious/static/media/header_img.4f15a729.jpg",
+    "static/media/login.jpg": "/studious/static/media/login.15c9fdd0.jpg",
+    "static/media/menu.jpg": "/studious/static/media/menu.78fd6d24.jpg",
+    "static/media/new_question_hand.png": "/studious/static/media/new_question_hand.63ec6f77.png",
+    "static/media/sample_image.png": "/studious/static/media/sample_image.0ace4efd.png",
+    "static/media/set_goals.jpg": "/studious/static/media/set_goals.5475f827.jpg",
+    "static/media/skills.jpg": "/studious/static/media/skills.b19f0f6a.jpg",
+    "static/media/transp_img.png": "/studious/static/media/transp_img.71476c55.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5921cfc5.js",
+    "static/css/2.ace1fa04.chunk.css",
+    "static/js/2.6d269d5e.chunk.js",
+    "static/css/main.ac020115.chunk.css",
+    "static/js/main.f6e10805.chunk.js"
+  ]
+}
