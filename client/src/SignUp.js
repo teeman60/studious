@@ -32,7 +32,7 @@ class SignUp extends Component {
             
         })
             alert("New Account Created")
-            this.props.history.push("/")
+            this.props.history.push("/studious")
     }
 
 
@@ -56,7 +56,7 @@ class SignUp extends Component {
 
                         <input type="submit" style={{display: 'inline-block', color: 'green', marginTop: '0.5rem'}}></input>
                     </form><br></br>
-                    <p>Already have an account? <Link to="/" style={{display: 'inline-grid', color: 'greenyellow'}}>go back to Login</Link></p>
+                    <p>Already have an account? <Link to="/studious" style={{display: 'inline-grid', color: 'greenyellow'}}>go back to Login</Link></p>
                
                 </div>
                                           

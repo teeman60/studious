@@ -48,7 +48,7 @@ class NavBar extends Component {
 
     logout = () => {
         localStorage.clear()
-        this.props.history.push('/')
+        this.props.history.push('/studious')
         
     }
 
@@ -89,7 +89,7 @@ class NavBar extends Component {
                                 </li>
                                
                                 <li className="nav-item" style={{fontStyle: 'italic', color: '#FF0000'}}>
-                                    <a className="nav-link" style={{color: 'brown'}} href="http://localhost:3001">Logout</a>
+                                    <a className="nav-link" style={{color: 'brown'}} href="http://localhost:3001/studious">Logout</a>
                                 </li> 
                             </ul>
 

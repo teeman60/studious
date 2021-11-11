@@ -70,7 +70,7 @@ class Menu extends Component {
             </div>
                        
          ):(<div>
-            <h4>Please <Link to="/" style={{display: 'inline-grid'}}>Login</Link> First</h4>
+            <h4>Please <Link to="/studious" style={{display: 'inline-grid'}}>Login</Link> First</h4>
             
          </div>)
         

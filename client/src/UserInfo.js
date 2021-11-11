@@ -40,7 +40,7 @@ class UserInfo extends Component {
 
     logout = () => {
         localStorage.clear()
-        this.props.history.push('/')
+        this.props.history.push('/studious')
         
     }    
 
@@ -95,7 +95,7 @@ class UserInfo extends Component {
                 <Footer />
             </div>
         ):(
-            <h3 style={{textAlign:"center"}}> You're Not Logged In, Please <Link to="/" >login</Link></h3>
+            <h3 style={{textAlign:"center"}}> You're Not Logged In, Please <Link to="/studious" >login</Link></h3>
         )
     }
 }

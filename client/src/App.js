@@ -109,7 +109,7 @@ class App extends Component {
           <Switch>               
             
 
-            <Route exact path="/"
+            <Route exact path="/studious"
             render={(routeProps) => <Login {...routeProps}/>} changeState={this.changeState} handleChange={this.handleChange} login={this.login} resetForm={this.resetForm}/>
 
 
